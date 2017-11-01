@@ -7,15 +7,15 @@ import entities.User;
 
 public interface LeagueDAO {
 	
-	public List<League> index(User user, int uid);
+	public List<League> index(int uid);
 
-	public League showLeague(User user, int id);
+	public League showLeague(int uid, int id);
 	
-	public League createLeague(User user, League league, String todoJson);
+	public League createLeague(int uid, String todoJson);
 	
-	public League updateLeague(User user, int lid, String todoJson);
+	public League updateLeague(int uid, int lid, String todoJson);
 	
-	public Boolean destroyLeague(User user, League league);
+	public Boolean destroyLeague(int uid, int tid);
 	
 	
 }
