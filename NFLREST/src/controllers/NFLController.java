@@ -13,7 +13,7 @@ import data.NFLDAO;
 public class NFLController {
 
 	@Autowired
-	NFLDAO dao;
+	private NFLDAO nfldao;
 
 	@RequestMapping(path = "ping", method = RequestMethod.GET)
 	public String ping() {

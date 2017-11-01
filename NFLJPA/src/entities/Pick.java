@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,19 +19,24 @@ public class Pick {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column(name = "team_id")
-    private Team team;
+    @OneToOne
+	@JoinColumn(name="teamId")
+	private Team team;
     
-    private boolean isCorrect;
+    private Boolean isCorrect;
     
-    @Column(name = "game_id")
-    private Game game;
+   
+    @OneToOne
+	@JoinColumn(name="gameId")
+	private Game game;
     
-    //mapping relationships
+    
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    @JsonIgnore
-    private User user;
+	@JoinColumn(name="userId")
+	private User user;
+
+
+	
 
 	public Team getTeam() {
 		return team;

@@ -4,9 +4,10 @@ CREATE DATABASE nfldb;
 USE nfldb;
 
 -- Add user
-DROP USER 'nfl'@'localhost';
-CREATE USER 'nfl'@'localhost' IDENTIFIED BY 'nfl';
-GRANT ALL PRIVILEGES ON nfldb.* TO 'nfl'@'localhost';
+-- Uncomment the lines below as needed
+-- DROP USER 'nfl'@'localhost';
+-- CREATE USER 'nfl'@'localhost' IDENTIFIED BY 'nfl';
+-- GRANT ALL PRIVILEGES ON nfldb.* TO 'nfl'@'localhost';
 
 --  Build tables
 DROP TABLE IF EXISTS `user`;
