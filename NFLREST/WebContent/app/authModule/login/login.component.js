@@ -5,7 +5,7 @@ angular.module('authModule').component('login', {
 		
 		vm.login = function(user){
 			authService.login(user).then(function(res){
-				$location.path('/todo');
+				$location.path('/');
 			})
 		}
 	},

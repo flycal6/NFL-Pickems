@@ -6,6 +6,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,6 +16,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import entities.Game;
 import entities.Week;
 
+@Transactional
+@Repository
 public class GameDAOImpl implements GameDAO{
 	
 	@PersistenceContext
