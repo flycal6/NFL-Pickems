@@ -20,6 +20,7 @@ public class User {
 	private String password;
 	
 	private double points;
+	
 
 	public String getfName() {
 		return fName;
