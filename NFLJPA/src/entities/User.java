@@ -1,9 +1,18 @@
 package entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+
 
 @Entity
 public class User {
@@ -20,6 +29,14 @@ public class User {
 	private String password;
 	
 	private double points;
+	
+	@OneToMany(mappedBy="user")
+	private List<Pick> picks;
+
+	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinTable(name = "user_league", joinColumns = @JoinColumn(name = "leagueId"), inverseJoinColumns = @JoinColumn(name = "userId"))
+	private List<League> leagues;
+
 	
 
 	public String getfName() {
@@ -60,6 +77,22 @@ public class User {
 
 	public void setPoints(double points) {
 		this.points = points;
+	}
+
+	public List<Pick> getPicks() {
+		return picks;
+	}
+
+	public void setPicks(List<Pick> picks) {
+		this.picks = picks;
+	}
+
+	public List<League> getLeagues() {
+		return leagues;
+	}
+
+	public void setLeagues(List<League> leagues) {
+		this.leagues = leagues;
 	}
 
 	public int getId() {

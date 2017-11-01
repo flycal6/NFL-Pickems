@@ -9,8 +9,14 @@
     </provider>
 
     <!-- List Entities Here -->
-    <class>entities.User</class>
     
+    <class>entities.League</class>
+    <class>entities.Pick</class>
+    <class>entities.Result</class>
+    <class>entities.Team</class>
+    <class>entities.User</class>
+    <class>entities.Week</class>
+    <class>entities.Game</class>
     
 
     <properties>
