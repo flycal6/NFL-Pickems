@@ -8,9 +8,9 @@ public interface GameDAO {
 	
 	public List<Game> index(int id);
 
-	public Game showGame(int id);
+	public Game showGame(int id, int gid);
 	
-	public Game createGame(Game game);
+	public Game createGame(int wid, String todoJson);
 	
 	
 }
