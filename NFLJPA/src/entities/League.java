@@ -1,12 +1,13 @@
 package entities;
 
 import java.sql.Date;
-
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 
 @Entity
@@ -21,6 +22,11 @@ public class League {
 	private String name;
 	
 	private double cost;
+	
+	@ManyToMany(mappedBy="leagues")
+	private List<User> users;
+
+	
 
 	public Boolean getIsPublic() {
 		return isPublic;
@@ -44,6 +50,14 @@ public class League {
 
 	public void setCost(double cost) {
 		this.cost = cost;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	public int getId() {
