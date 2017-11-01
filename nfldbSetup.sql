@@ -4,7 +4,8 @@ CREATE DATABASE nfldb;
 USE nfldb;
 
 -- Add user
-DROP USER 'nfl'@'localhost';
+-- Uncomment the line below if you have already created the user
+-- DROP USER 'nfl'@'localhost';
 CREATE USER 'nfl'@'localhost' IDENTIFIED BY 'nfl';
 GRANT ALL PRIVILEGES ON nfldb.* TO 'nfl'@'localhost';
 
