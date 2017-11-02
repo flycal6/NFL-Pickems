@@ -1,14 +1,14 @@
 package entities;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Game {
@@ -24,13 +24,12 @@ public class Game {
 	@OneToOne
 	@JoinColumn(name="id")
 	private Team away;
-	
-	@OneToOne
-	@JoinColumn(name="id")
+		
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name="weekId")
 	private Week week;
 	
-	
-
 	
 
 	public Team getHome() {
