@@ -32,7 +32,7 @@ public class GameDAOImpl implements GameDAO{
 
 	@Override
 	public Game showGame(int wid, int gid) {
-		String query = "SELECT g FROM Game g WHERE g.week.id = :id AND g.id = :gid";
+		String query = "SELECT g FROM Game g WHERE g.week.id = :wid AND g.id = :gid";
 		Game game = em.createQuery(query, Game.class).setParameter("wid", wid).setParameter("gid", gid).getResultList()
 				.get(0);
 		return game;

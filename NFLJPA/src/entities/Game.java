@@ -18,11 +18,11 @@ public class Game {
 	private int id;
 	
 	@OneToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name="homeId")
 	private Team home;
 	
 	@OneToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name="awayId")
 	private Team away;
 		
 	@JsonIgnore

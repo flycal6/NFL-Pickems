@@ -29,4 +29,9 @@ public class GameController {
 	public List<Game> indexGame(@PathVariable int wid) {
 		return dao.indexGame(wid);
 	}
+	
+	@RequestMapping(path = "weeks/{wid}/game/{gid}", method = RequestMethod.GET)
+	public Game showGame(@PathVariable int wid, @PathVariable int gid ) {
+		return dao.showGame(wid, gid);
+	}
 }
