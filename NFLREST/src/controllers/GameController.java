@@ -34,4 +34,9 @@ public class GameController {
 	public Game showGame(@PathVariable int wid, @PathVariable int gid ) {
 		return dao.showGame(wid, gid);
 	}
+	
+	@RequestMapping(path = "weeks/{wid}/game", method = RequestMethod.POST)
+	public Game createGame(@PathVariable int wid, @RequestBody String jsonAddress) {
+			return dao.createGame(wid, jsonAddress);
+	}
 }
