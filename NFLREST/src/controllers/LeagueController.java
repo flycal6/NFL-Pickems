@@ -35,4 +35,6 @@ public class LeagueController {
 	public League showLeague(@PathVariable int lid, HttpServletRequest req, HttpServletResponse res) {
 		return lDao.showLeague(lid);
 	}
+	
+
 }

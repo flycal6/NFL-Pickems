@@ -4,6 +4,7 @@ angular.module('appModule').component('leagues', {
 		var vm = this;
 		vm.leagues = [];
 		vm.selected = null;
+		
 
 		// INDEX
 		var reload = function() {
@@ -11,7 +12,7 @@ angular.module('appModule').component('leagues', {
 				// console.log(res)
 				// console.log(res.data)
 				vm.leagues = res.data;
-				console.log(vm.leagues[0].name)
+				console.log(vm.leagues)
 				console.log(vm.leagues[1].name)
 			});
 		}
@@ -26,6 +27,13 @@ angular.module('appModule').component('leagues', {
 		vm.setSelected = function(id) {
 			showLeague(id);
 
+		}
+		
+		vm.joinLeague = function(id){
+			nflService.joinLeague(id).then(function(res){
+				console.log(res.data);
+				$location.path("/leagues");
+			});
 		}
 
 	},

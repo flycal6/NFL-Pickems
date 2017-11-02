@@ -2,7 +2,8 @@ package data;
 
 import java.util.List;
 
-import entities.League;
+import javax.servlet.http.HttpSession;
+
 import entities.User;
 
 public interface UserDAO {
@@ -14,6 +15,8 @@ public interface UserDAO {
 	public User updateUser(int uid, String todoJson);
 	
 	public Boolean destroyUser(int uid);
+
+	public Boolean userJoinLeague(int uid, int lid);
 	 
 	
 }

@@ -12,6 +12,7 @@
 <!-- show a single league -->
 <div ng-show="vm.selected">{{vm.selected.name}}
 <button ng-click="vm.selected = null">Go back</button>
+<button ng-click="vm.joinLeague(vm.selected.id)">Join League</button>
 </div>
 
 

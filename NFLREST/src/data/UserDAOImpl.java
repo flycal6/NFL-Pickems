@@ -1,20 +1,20 @@
 package data;
 
-import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entities.League;
 import entities.User;
 
+@Repository
 @Transactional
 public class UserDAOImpl implements UserDAO {
 
@@ -67,5 +67,17 @@ public class UserDAOImpl implements UserDAO {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+
+	@Override
+	public Boolean userJoinLeague(int uid, int lid) {
+		User u = em.find(User.class, uid);
+		if(u != null) {
+		u.getLeagues().add(em.find(League.class, lid));
+		
+		return true;
+		
+		}
+		return false;
 	}
 }
