@@ -12,6 +12,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -30,9 +32,11 @@ public class User {
 	
 	private double points;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="user")
 	private List<Pick> picks;
 
+	@JsonIgnore
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name = "user_league", joinColumns = @JoinColumn(name = "leagueId"), inverseJoinColumns = @JoinColumn(name = "userId"))
 	private List<League> leagues;
