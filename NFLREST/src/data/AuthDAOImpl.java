@@ -33,15 +33,17 @@ public class AuthDAOImpl implements AuthDAO {
 
 	@Override
 	public User login(User u) {
+		System.out.println(u);
 		String query = "SELECT u FROM User u WHERE u.email = :email";
 		List<User> users = em.createQuery(query, User.class)
 					.setParameter("email", u.getEmail())
 					.getResultList();
-		
+		System.out.println(users.get(0));
 		if(users.size() > 0) {
 			boolean doMatch = encoder.matches(u.getPassword(), users.get(0).getPassword());
-			
+			System.out.println(doMatch);
 			if(doMatch) {
+				System.out.println("returning: " + users.get(0));
 				return users.get(0);
 			}
 		}

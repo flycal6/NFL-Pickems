@@ -5,6 +5,7 @@ angular.module('authModule').factory('authService', function($http, $cookies) {
 
 	// Private: Store the user's id and email in cookies for use later
 	var saveToken = function(user) {
+		console.log(user);
 		$cookies.put('userId', user.id);
 		$cookies.put('userEmail', user.email);
 	}
@@ -46,6 +47,8 @@ angular.module('authModule').factory('authService', function($http, $cookies) {
 	// Use the auth/login route to authenticate the user
 	// On success, use saveToken to store the users id/email
 	service.login = function(user) {
+		console.log('service.login')
+		console.log(user)
 		return $http({
 			method : 'POST',
 			url : 'rest/auth/login',
@@ -53,7 +56,9 @@ angular.module('authModule').factory('authService', function($http, $cookies) {
 				'Content-Type' : 'application/json'
 			},
 			data: user
-		}).then(function(res){
+		}).then(function(res){			
+			console.log("res.data")
+			console.log(res.data)
 			saveToken(res.data);
 			return res;
 		});

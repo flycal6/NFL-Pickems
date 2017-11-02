@@ -35,10 +35,14 @@ public class AuthController {
 
 	@RequestMapping(path = "/login", method = RequestMethod.POST)
 	public User login(HttpSession session, @RequestBody User user, HttpServletResponse res) {
-		// TODO : Authenticate user object, place the user in session, return the user
+		// Authenticate user object, place the user in session, return the user
 		User u = authDao.login(user);
+		System.out.println("authController login");
+		System.out.println(u);
 		if(u != null) {
+			System.out.println("inside controller if()");
 			session.setAttribute("user", u);
+			System.out.println(session.getAttribute("user"));
 			res.setStatus(200);
 			return u;
 		}
