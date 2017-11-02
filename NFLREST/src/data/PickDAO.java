@@ -6,10 +6,10 @@ import entities.Pick;
 import entities.User;
 
 public interface PickDAO {
-  public List<Pick> indexPick(User user);
+  public List<Pick> indexPick(int uid);
 
-  public Pick showPick(User user, int id);
+  public Pick showPick(int uid, int pid);
 
-  public Pick createPick(User user, Pick pick, String todoJson);
+  public Pick createPick(int uid, String todoJson);
 
 }
