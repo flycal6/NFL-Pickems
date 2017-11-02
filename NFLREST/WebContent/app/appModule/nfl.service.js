@@ -13,7 +13,7 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 		else {
 			getUser();
 		}
-	}
+	};
 	
 	service.indexLeagues = function(){
 		return $http({
@@ -22,5 +22,12 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 		});
 	};
 	
+	service.showLeague = function(id){
+		return $http({
+			method: 'GET',
+			url: 'rest/leagues/' + id
+		});
+	};
+	
 	return service;
-})
+});

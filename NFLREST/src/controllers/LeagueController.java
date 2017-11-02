@@ -31,4 +31,8 @@ public class LeagueController {
 		return lDao.index();
 	}
 
+	@RequestMapping(path="/{lid}", method=RequestMethod.GET)
+	public League showLeague(@PathVariable int lid, HttpServletRequest req, HttpServletResponse res) {
+		return lDao.showLeague(lid);
+	}
 }

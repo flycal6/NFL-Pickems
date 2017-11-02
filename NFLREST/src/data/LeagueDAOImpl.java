@@ -33,9 +33,9 @@ public class LeagueDAOImpl implements LeagueDAO {
 	}
 
 	@Override
-	public League showLeague(int uid, int lid) {
-		String query = "SELECT l FROM League l WHERE l.user.id = :uid AND l.id = :lid";
-		League league = em.createQuery(query, League.class).setParameter("uid", uid).setParameter("tid", lid)
+	public League showLeague(int lid) {
+		String query = "SELECT l FROM League l WHERE l.id = :lid";
+		League league = em.createQuery(query, League.class).setParameter("lid", lid)
 				.getResultList().get(0);
 		return league;
 	}

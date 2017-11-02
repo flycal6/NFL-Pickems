@@ -1,10 +1,17 @@
 
+<!-- Show all leagues -->
+<h1 class="display-2">{{user}}</h1>
+{{"Leagues page"}}
+<div ng-hide="vm.selected">
+	<ul ng-repeat="league in vm.leagues">
+		<li ng-click="vm.setSelected(league.id)">League id: {{league.id}}</li>
+		<li ng-click="vm.setSelected(league.id)">League name: {{league.name}}</li>
+		<li ng-click="vm.setSelected(league.id)">League cost: {{league.cost}}</li>
+	</ul>
+</div>
+<!-- show a single league -->
+<div ng-show="vm.selected">{{vm.selected.name}}
+<button ng-click="vm.selected = null">Go back</button>
+</div>
 
-<h1 class="display-2">{{user}}</h1>{{"Leagues page"}}
-<ul ng-repeat="league in vm.leagues">
-	<li>League id: {{league.id}}</li>
-	<li>League name: {{league.name}}</li>
-	<li>League name: {{league.name}}</li>
-	<li>League cost: {{league.cost}}</li>
-</ul>
 
