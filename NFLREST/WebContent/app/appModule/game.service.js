@@ -10,16 +10,7 @@ angular.module('appModule').factory('gameService', function($http, $filter, $loc
 		});
 	};
 	
-//	var getWeekId = function(){
-//	      return authService.getToken().id;
-//	  }
-//	
-//	service.getToken = function() {
-//		var token = {};
-//		token.id = $cookies.get('userId');
-//		token.email = $cookies.get('userEmail');
-//		return token;
-//	}
+
 	
 	return service;
 })

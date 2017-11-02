@@ -1,12 +1,27 @@
 angular.module('appModule').component('weeks', {
 	templateUrl : 'app/appModule/week/week.component.html',
-	controller: function($location, gameService){
+	controller: function($location, gameService, weekService){
 		var vm = this;
 		vm.games = [];
+		vm.weeks = [];
 		vm.selected = null;
 		
-		vm.displayGame = function(game){
-	        console.log("Game clicked")
+		var indexWeeks = function(){
+			weekService.indexWeeks()
+			.then(function(res){
+				vm.weeks = res.data;
+				console.log(vm.weeks)
+			})
+		}
+		indexWeeks();
+		
+		vm.selectGameHome = function(game){
+	        console.log(game.home.name + ": Game clicked")
+	        vm.selected = game;  
+	    }
+		
+		vm.selectGameAway = function(game){
+	        console.log(game.away.name + ": Game clicked")
 	        vm.selected = game;  
 	    }
 		
@@ -25,9 +40,7 @@ angular.module('appModule').component('weeks', {
     		})
     	}	
     	reload();
-    	
-    	
-    	
+  
     	
 	},
 	controllerAs: 'vm'
