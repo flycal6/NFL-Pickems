@@ -29,10 +29,27 @@ DROP TABLE IF EXISTS `week`;
 CREATE TABLE `week`(
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` DATE NOT NULL,
+  `gameWeek` int(4) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO `week` (date) VALUES (2017-11-01);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-09-05',1);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-09-12',2);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-09-19',3);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-09-26',4);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-10-03',5);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-10-10',6);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-10-17',7);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-10-24',8);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-10-31',9);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-11-07',10);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-11-14',11);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-11-21',12);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-11-28',13);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-12-05',14);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-12-12',15);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-12-19',16);
+INSERT INTO `week` (date, gameWeek) VALUES ('2017-12-26',17);
 
 DROP TABLE IF EXISTS `league`;
 CREATE TABLE `league`(
