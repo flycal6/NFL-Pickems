@@ -1,5 +1,6 @@
 package entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,11 +18,11 @@ public class Game {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="homeId")
 	private Team home;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.PERSIST)
 	@JoinColumn(name="awayId")
 	private Team away;
 		
