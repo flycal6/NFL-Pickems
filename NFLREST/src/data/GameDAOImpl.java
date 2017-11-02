@@ -24,7 +24,7 @@ public class GameDAOImpl implements GameDAO{
 	private EntityManager em;
 	
 	@Override
-	public List<Game> index(int id) {
+	public List<Game> indexGame(int id) {
 		String query = "SELECT g FROM Game g WHERE g.week.id = :id ";
 		List<Game> games = em.createQuery(query, Game.class).setParameter("id", id).getResultList();
 		return games;

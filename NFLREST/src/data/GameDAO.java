@@ -6,7 +6,7 @@ import entities.Game;
 
 public interface GameDAO {
 	
-	public List<Game> index(int id);
+	public List<Game> indexGame(int id);
 
 	public Game showGame(int id, int gid);
 	

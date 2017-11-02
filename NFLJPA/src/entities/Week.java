@@ -21,7 +21,7 @@ public class Week {
     private Date date;
     
 	@JsonIgnore
-	@OneToMany(mappedBy="gameId")
+	@OneToMany
 	private List<Game> games;
 
     public List<Game> getGames() {
