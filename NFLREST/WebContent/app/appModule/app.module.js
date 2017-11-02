@@ -10,6 +10,9 @@ angular.module('appModule', ['ngRoute', 'authModule'])
 		.when('/home', {
 			template: '<home></home>'
 		})
+		.when('/weeks', {
+			template: '<weeks></weeks>'
+		})
 		.otherwise({
 			template: '<not-found></not-found>'
 		})
