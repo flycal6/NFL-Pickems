@@ -22,10 +22,10 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 		});
 	};
 	
-	service.showLeague = function(){
+	service.showLeague = function(id){
 		return $http({
 			method: 'GET',
-			url: 'rest/leagues/' + league.id
+			url: 'rest/leagues/' + id
 		});
 	};
 	

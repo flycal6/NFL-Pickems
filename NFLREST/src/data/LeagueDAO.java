@@ -8,7 +8,7 @@ public interface LeagueDAO {
 	
 	public Set<League> index();
 
-	public League showLeague(int uid, int id);
+	public League showLeague(int id);
 	
 	public League createLeague(int uid, String todoJson);
 	
