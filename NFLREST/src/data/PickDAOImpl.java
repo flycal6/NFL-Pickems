@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -18,6 +19,7 @@ import entities.User;
 
 
 @Transactional
+@Repository
 public class PickDAOImpl implements PickDAO{
 	
 	@PersistenceContext
@@ -27,15 +29,17 @@ public class PickDAOImpl implements PickDAO{
 	public List<Pick> indexPick(int uid) {
 		String query = "SELECT p FROM Pick p WHERE p.user.id = :uid ";
 		List<Pick> picks = em.createQuery(query, Pick.class).setParameter("uid", uid).getResultList();
+		
+		System.out.println(picks.get(0));
 		return picks;
 	}
 
 	@Override
 	public Pick showPick(int uid, int pid) {
 		String query = "SELECT p FROM Pick p WHERE p.user.id = :uid AND p.id = :pid";
-		League league = em.createQuery(query, League.class).setParameter("uid", uid).setParameter("pid", pid)
+		Pick pick = em.createQuery(query, Pick.class).setParameter("uid", uid).setParameter("pid", pid)
 				.getResultList().get(0);
-		return null;
+		return pick;
 	}
 
 	@Override
@@ -53,7 +57,6 @@ public class PickDAOImpl implements PickDAO{
 		}
 		User user = em.find(User.class, uid);
 		pick.setUser(user);
-//		pick.getUsers().add(user);
 		em.persist(pick);
 		em.flush();
 		return pick;

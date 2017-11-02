@@ -23,9 +23,10 @@ public class Pick {
 	@JoinColumn(name="teamId")
 	private Team team;
     
-    private Boolean isCorrect;
+    @JsonIgnore
+    @Column(name="isCorrect")
+    private Boolean correct;
     
-   
     @OneToOne
 	@JoinColumn(name="gameId")
 	private Game game;
@@ -34,9 +35,6 @@ public class Pick {
     @ManyToOne
 	@JoinColumn(name="userId")
 	private User user;
-
-
-	
 
 	public Team getTeam() {
 		return team;
@@ -47,11 +45,11 @@ public class Pick {
 	}
 
 	public boolean isCorrect() {
-		return isCorrect;
+		return correct;
 	}
 
-	public void setCorrect(boolean isCorrect) {
-		this.isCorrect = isCorrect;
+	public void setCorrect(boolean correct) {
+		this.correct = correct;
 	}
 
 	public Game getGame() {
@@ -74,11 +72,11 @@ public class Pick {
 		return id;
 	}
 
-	public Pick(int id, Team team, boolean isCorrect, Game game, User user) {
+	public Pick(int id, Team team, boolean correct, Game game, User user) {
 		super();
 		this.id = id;
 		this.team = team;
-		this.isCorrect = isCorrect;
+		this.correct = correct;
 		this.game = game;
 		this.user = user;
 	}
@@ -89,7 +87,7 @@ public class Pick {
 
 	@Override
 	public String toString() {
-		return "Pick [id=" + id + ", team=" + team + ", isCorrect=" + isCorrect + ", game=" + game + "]";
+		return "Pick [id=" + id + ", team=" + team + ", isCorrect=" + correct + ", game=" + game + "]";
 	}
 
 	@Override
@@ -98,7 +96,7 @@ public class Pick {
 		int result = 1;
 		result = prime * result + ((game == null) ? 0 : game.hashCode());
 		result = prime * result + id;
-		result = prime * result + (isCorrect ? 1231 : 1237);
+		result = prime * result + (correct ? 1231 : 1237);
 		result = prime * result + ((team == null) ? 0 : team.hashCode());
 		return result;
 	}
@@ -119,7 +117,7 @@ public class Pick {
 			return false;
 		if (id != other.id)
 			return false;
-		if (isCorrect != other.isCorrect)
+		if (correct != other.correct)
 			return false;
 		if (team == null) {
 			if (other.team != null)
