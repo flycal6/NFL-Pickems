@@ -5,12 +5,20 @@ angular.module('appModule').component('leagues', {
 		vm.leagues = [];
 		
 	//INDEX   		
-    		nflService.index()
+    	vm.reload = function(){
+    		nflService.indexLeagues()
     		.then(function(res){
+//    			console.log(res)
+//    			console.log(res.data)
     			vm.leagues = res.data;
+    			console.log(vm.leagues)
     		})  		
-    	
+    	}	
     	vm.reload();
+    	
+    	
+    	
+    	
 	},
 	contorllerAs: 'vm'
 });

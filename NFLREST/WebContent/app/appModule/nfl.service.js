@@ -16,9 +16,9 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 	}
 	
 	service.indexLeagues = function(){
-		$http({
+		return $http({
 			method: 'GET',
-			url: 'rest/leagues'
+			url: 'rest/leagues/'
 		});
 	};
 	
