@@ -1,13 +1,12 @@
 package data;
 
-import java.util.List;
+import java.util.Set;
 
 import entities.League;
-import entities.User;
 
 public interface LeagueDAO {
 	
-	public List<League> index(int uid);
+	public Set<League> index();
 
 	public League showLeague(int uid, int id);
 	

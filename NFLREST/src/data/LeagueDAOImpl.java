@@ -1,11 +1,14 @@
 package data;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -15,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import entities.League;
 import entities.User;
 
+@Repository
 @Transactional
 public class LeagueDAOImpl implements LeagueDAO {
 
@@ -22,10 +26,10 @@ public class LeagueDAOImpl implements LeagueDAO {
 	private EntityManager em;
 
 	@Override
-	public List<League> index(int uid) {
-		String query = "SELECT l FROM League l WHERE l.user.id = :uid ";
-		List<League> leagues = em.createQuery(query, League.class).setParameter("uid", uid).getResultList();
-		return leagues;
+	public Set<League> index() {
+		String query = "SELECT l FROM League l";
+		return new HashSet<League>( em.createQuery(query, League.class).getResultList());
+		
 	}
 
 	@Override

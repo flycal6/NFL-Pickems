@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,8 @@ public class League {
 	
 	private double cost;
 	
-	@ManyToMany(mappedBy="leagues")
+	
+	@ManyToMany(mappedBy="leagues", fetch=FetchType.EAGER)
 	private List<User> users;
 
 	
