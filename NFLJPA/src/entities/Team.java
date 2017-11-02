@@ -20,6 +20,8 @@ public class Team {
 	private String name;
 	
 	private String city;
+	
+	private String abbr;
 
 	public String getName() {
 		return name;
@@ -39,6 +41,14 @@ public class Team {
 
 	public int getId() {
 		return id;
+	}
+
+	public String getAbbr() {
+		return abbr;
+	}
+
+	public void setAbbr(String abbr) {
+		this.abbr = abbr;
 	}
 
 	public Team(int id, String name, String city) {
