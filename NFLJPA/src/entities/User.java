@@ -38,7 +38,7 @@ public class User {
 
 	@JsonIgnore
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinTable(name = "user_league", joinColumns = @JoinColumn(name = "leagueId"), inverseJoinColumns = @JoinColumn(name = "userId"))
+	@JoinTable(name = "user_league", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "leagueId"))
 	private List<League> leagues;
 
 	

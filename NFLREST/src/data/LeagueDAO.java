@@ -17,4 +17,6 @@ public interface LeagueDAO {
 	public Boolean destroyLeague(int uid, int tid);
 	
 	
+	
+	
 }

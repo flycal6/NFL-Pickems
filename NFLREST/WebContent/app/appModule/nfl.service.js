@@ -6,11 +6,11 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 	var getUser = function(){
 		user = authService.getToken();
 	}
+	
+	getUser();
+	
 	var checkLogin = function(){
-		if(authService.getToken().id != null){
-			$location.path('/home');
-		}
-		else {
+		if(authService.getToken().id == null){
 			getUser();
 		}
 	};
@@ -28,6 +28,16 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 			url: 'rest/leagues/' + id
 		});
 	};
+	
+	service.joinLeague = function(id){
+		checkLogin();
+		console.log();
+		return $http({
+			method: 'POST',
+			url: 'rest/users/' + user.id + '/leagues/' + id
+		});
+	};
+	
 	
 	return service;
 });
