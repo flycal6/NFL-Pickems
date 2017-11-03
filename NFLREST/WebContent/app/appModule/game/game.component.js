@@ -4,23 +4,32 @@ angular.module('appModule').component('games', {
 		var vm = this;
 		vm.games = [];
 		vm.selected = null;
+		vm.selectedArr = [];
 		
 		vm.selectGameHome = function(game){
 	        console.log(game.home.name + ": Game clicked")
-	        vm.selected = game;  
+	        vm.selected = game.home;   
+	        vm.selectedArr.push(game.home);
+//	        console.log(vm.selected)
+//	        console.log(game.home)
+	        console.log(vm.selectedArr);
+	   
 	    }
 		
 		vm.selectGameAway = function(game){
 	        console.log(game.away.name + ": Game clicked")
-	        vm.selected = game;  
+	        vm.selected = game.away;  
+	        vm.selectedArr.push(game.away);
+	        console.log(vm.selectedArr);
 	    }
+	
 		
 	//INDEX   		
     	var reload = function(){
     		gameService.indexGame()
     		.then(function(res){
-    			console.log(res)
-    			console.log(res.data)
+//    			console.log(res)
+//    			console.log(res.data)
     			vm.games = res.data;
     		})  	
     		.catch(function(err){
