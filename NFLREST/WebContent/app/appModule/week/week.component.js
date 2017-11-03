@@ -15,16 +15,6 @@ angular.module('appModule').component('weeks', {
 		}
 		indexWeeks();
 		
-		vm.selectGameHome = function(game){
-	        console.log(game.home.name + ": Game clicked")
-	        vm.selected = game;  
-	    }
-		
-		vm.selectGameAway = function(game){
-	        console.log(game.away.name + ": Game clicked")
-	        vm.selected = game;  
-	    }
-		
 	//INDEX   		
     	var reload = function(){
     		gameService.indexGame()

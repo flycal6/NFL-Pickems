@@ -143,6 +143,26 @@ CREATE TABLE `game` (
 
 INSERT INTO `game` (homeId, awayId, weekId) VALUES (1,2,1);
 INSERT INTO `game` (homeId, awayId, weekId) VALUES (3,4,1);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (5,6,1);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (7,8,1);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (9,10,1);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (11,12,1);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (13,14,1);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (2,3,2);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (4,5,2);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (6,7,2);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (8,9,2);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (10,11,2);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (12,13,2);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (14,15,2);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (16,17,3);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (18,19,3);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (20,21,3);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (22,23,3);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (24,25,3);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (26,27,3);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (28,29,3);
+
 
 DROP TABLE IF EXISTS `pick`;
 CREATE TABLE `pick` (
