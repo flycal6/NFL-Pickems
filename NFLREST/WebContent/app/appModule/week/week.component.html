@@ -4,23 +4,4 @@
 		</select>
 	</div>
 
-<table id="gameTable">   <!-- ng-hide="vm.selected" -->
-	<thead>
-		<tr id="head">
-			<th>HOME</th>
-			<th>Line</th>
-			<th>AWAY</th>
-			<th>O/U</th>
-		</tr>
-	</thead>
-	<tr ng-repeat="game in vm.games">
-
-		<td id="gameHomeTeam" ng-click="vm.selectGameHome(game)"><button ng-class="{'btn-primary': !game.home.clicked, 'btn-success': game.home.clicked}" ng-click="game.home.clicked = !game.home.clicked">{{game.home.city}}
-				{{game.home.name}}</button></td>
-		<td id="gameLine">OFF</td>
-		<td id="gameAwayTeam" ng-click="vm.selectGameAway(game)"><button ng-class="{'btn-primary': !game.away.clicked, 'btn-success': game.away.clicked}" ng-click="game.away.clicked = !game.away.clicked">{{game.away.city}}
-				{{game.away.name}}</button></td>
-		<td id="gameTotal">----</td>
-
-	</tr>
-</table>
+<games>Loading...</games>

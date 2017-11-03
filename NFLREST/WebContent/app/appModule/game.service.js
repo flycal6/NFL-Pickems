@@ -3,7 +3,6 @@ angular.module('appModule').factory('gameService', function($http, $filter, $loc
 	
 	
 	service.indexGame = function(wid){
-//		var wid = getWeekId();
 		return $http({
 			method: 'GET',
 			url: 'rest/weeks/1/game'
