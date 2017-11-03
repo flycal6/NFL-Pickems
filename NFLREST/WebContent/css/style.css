@@ -21,3 +21,13 @@ button:hover{
 #gameAwayTeam button{
 	width: 200px;
 }
+
+#SubmitPicks button {
+	background-color: red;
+	margin-top: 15px;
+	margin-left: 66%;
+}
+
+#SubmitPicks button:hover {
+	background-color: #bc0d0d;
+}
