@@ -8,7 +8,7 @@ angular.module('appModule').component('games', {
 		
 		vm.selectGameHome = function(game){
 	        console.log(game.home.name + ": Game clicked")
-	        if(vm.selectedArr.indexOf(game.home) < 0){
+	        if(vm.selectedArr.indexOf(game.home) <= 0){
 	        	vm.selected = game.home;   
 		        vm.selectedArr.push(game.home);
 //		        console.log(vm.selected)
