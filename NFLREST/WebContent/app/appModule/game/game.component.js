@@ -14,21 +14,39 @@ angular.module('appModule').component('games', {
 //		        console.log(vm.selected)
 //		        console.log(game.home)
 		        console.log(vm.selectedArr);
+		        		if(vm.selectedArr.indexOf(game.away) >= 0){
+		        			console.log('in 2nd if')
+		        			vm.selectedArr.splice(vm.selectedArr.indexOf(game.away),1)
+	        			}
+		        		else{
+		        			console.log('valid pick')
+		        		}
 	        }
 	        else{
-	        	console.log('ALREADY PICKED');
+	        	console.log('ALREADY PICKED')
 	        }
-	        
-	   
 	    }
 		
 		vm.selectGameAway = function(game){
 	        console.log(game.away.name + ": Game clicked")
-	        vm.selected = game.away;  
-	        vm.selectedArr.push(game.away);
-	        console.log(vm.selectedArr);
-	    }
-	
+	        if(vm.selectedArr.indexOf(game.away) < 0){
+	        	vm.selected = game.away;   
+		        vm.selectedArr.push(game.away);
+//		        console.log(vm.selected)
+//		        console.log(game.home)
+		        console.log(vm.selectedArr);
+			        if(vm.selectedArr.indexOf(game.home) >= 0){
+	        			console.log('in 2nd if')
+	        			vm.selectedArr.splice(vm.selectedArr.indexOf(game.home),1)
+	    			}
+	        		else{
+	        			console.log('valid pick')
+	        		}
+	        }
+	        else{
+	        	console.log('ALREADY PICKED');
+	        }
+		}
 		
 	//INDEX   		
     	var reload = function(){
