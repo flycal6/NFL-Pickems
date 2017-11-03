@@ -9,6 +9,7 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 	
 	getUser();
 	
+	
 	var checkLogin = function(){
 		if(authService.getToken().id == null){
 			getUser();
