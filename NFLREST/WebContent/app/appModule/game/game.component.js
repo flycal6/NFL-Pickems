@@ -8,11 +8,17 @@ angular.module('appModule').component('games', {
 		
 		vm.selectGameHome = function(game){
 	        console.log(game.home.name + ": Game clicked")
-	        vm.selected = game.home;   
-	        vm.selectedArr.push(game.home);
-//	        console.log(vm.selected)
-//	        console.log(game.home)
-	        console.log(vm.selectedArr);
+	        if(vm.selectedArr.indexOf(game.home) < 0){
+	        	vm.selected = game.home;   
+		        vm.selectedArr.push(game.home);
+//		        console.log(vm.selected)
+//		        console.log(game.home)
+		        console.log(vm.selectedArr);
+	        }
+	        else{
+	        	console.log('ALREADY PICKED');
+	        }
+	        
 	   
 	    }
 		
