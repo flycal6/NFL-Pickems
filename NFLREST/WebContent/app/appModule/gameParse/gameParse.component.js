@@ -3,11 +3,23 @@ angular.module('appModule').component('gameParse', {
 	controller: function(gameParseService){
 		var vm = this;
 		
-		vm.games = {};
+		vm.games = [];
 		
-		gameParseService.index('2017102600/2017102610').then(function(res){
+		gameParseService.index().then(function(res){
 			console.log(res.data);
 			vm.games = res.data;
+			
+			var weekCollection = [];
+			
+			for(game in vm.games){
+				var gameOBJ = {};
+				gameOBJ.away = vm.games[game].away.abbr;
+				gameOBJ.home = vm.games[game].home.abbr;
+				gameOBJ.week = null;
+				weekCollection.push(gameOBJ);
+				console.log(gameOBJ);
+				
+			};
 		});
 		
 		
