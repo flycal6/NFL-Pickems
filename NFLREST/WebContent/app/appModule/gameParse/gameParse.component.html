@@ -1,0 +1,30 @@
+<h1>Game Parser Component</h1>
+
+<!-- <ul ng-repeat="g in vm.games">
+	<li>{{g.home.abbr}}: {{g.home.score.T}}</li>
+	<li>{{g.away.abbr}}: {{g.away.score.T}}</li>
+</ul> -->
+
+<table class="table table-striped table-hover table-responsive">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Team : Q1 : Q2 : Q3 : Q4: Final</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="g in vm.games" ng-class="todo.completed? 'text-secondary strike' : ''">
+            <td><div><span>Home</span><span>{{g.home.abbr}}</span><span>{{g.home.score["1"]}}</span><span>{{g.home.score.T}}</span></div><br />
+         		<div><span>Away</span><span>{{g.away.abbr}}</span><span>{{g.away.score["1"]}}</span><span>{{g.away.score.T}}</span></div></td>
+            <!-- <td ng-click="vm.displayTodo(todo.id)">Home</td>
+            <td ng-click="vm.displayTodo(todo.id)"></td>
+            <td ng-click="vm.displayTodo(todo.id)"></td>
+            <td ng-click="vm.displayTodo(todo.id)">{{g.home.score["2"]}}</td>
+            <td ng-click="vm.displayTodo(todo.id)">{{g.home.score["3"]}}</td>
+            <td ng-click="vm.displayTodo(todo.id)">{{g.home.score["4"]}}</td>
+            <td ng-click="vm.displayTodo(todo.id)">{{g.home.score.T}}</td>
+            <td ng-click="vm.displayTodo(todo.id)"></td>
+            <td ng-click="vm.displayTodo(todo.id)">{{g.away.abbr}}</td>
+            <td ng-click="vm.displayTodo(todo.id)">{{g.away.score.T}}</td> -->
+        </tr>
+    </tbody>
+</table>

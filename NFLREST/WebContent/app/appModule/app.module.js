@@ -13,6 +13,9 @@ angular.module('appModule', ['ngRoute', 'authModule'])
 		.when('/weeks', {
 			template: '<weeks></weeks>'
 		})
+		.when('/game-parse', {
+			template: '<game-parse></game-parse>'
+		})
 		.otherwise({
 			template: '<not-found></not-found>'
 		})
