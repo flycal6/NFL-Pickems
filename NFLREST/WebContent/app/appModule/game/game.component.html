@@ -1,13 +1,13 @@
 <table id="gameTable">
-	<thead>
-		<tr id="head">
-			<th>HOME</th>
-			<th>Line</th>
-			<th>AWAY</th>
-			<th>O/U</th>
-		</tr>
-	</thead>
-	<tr ng-repeat="game in vm.games">
+    <thead>
+        <tr id="head">
+            <th>HOME</th>
+            <th>Line</th>
+            <th>AWAY</th>
+            <th>O/U</th>
+        </tr>
+    </thead>
+    <tr ng-repeat="game in vm.games">
 
 		<td id="gameHomeTeam" ng-click="vm.selectGame(game, 'home')"><button ng-class="(vm.selectedArr.indexOf(game.home) >= 0) ? 'btn btn-success' : 'btn-primary'">{{game.home.city}}
 				{{game.home.name}}</button></td>

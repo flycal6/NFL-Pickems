@@ -1,25 +1,25 @@
 #gameTable{
-	width: 800px;
-	text-align:center;
+    width: 800px;
+    text-align:center;
 }
 #head th{
-text-align:center;	
+text-align:center;    
 }
 #gameLine{
-	color:darkgrey;
+    color:darkgrey;
 }
 #weekSelectDiv{
-	text-align: right;
-	margin: 20px 50px 20px 0px;
+    text-align: right;
+    margin: 20px 50px 20px 0px;
 }
 button:hover{
-	cursor:pointer;
+    cursor:pointer;
 }
 #gameHomeTeam button{
-	width: 200px;
+    width: 200px;
 }
 #gameAwayTeam button{
-	width: 200px;
+    width: 200px;
 }
 
 #SubmitPicks button {
