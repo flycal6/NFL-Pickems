@@ -10,30 +10,17 @@ angular.module('appModule').factory('gameService', function($http, $filter, $loc
 		});
 	};
 	
-//Sends array of picks to Pick table	
-	service.createPicks = function(picksArr){
-		
-		return $http({
-			method: 'POST',
-			url: 'rest/users/' + user.id + '/leagues/' + id
-		});
-	};
 //SERVICE TO ADD NEW ITEM TO LIST	  
-  service.createPicks = function(picksArr){
+  service.createPicks = function(pickJsonArr){
 	  
 	  return $http({
 	  		method: "POST",
-			url:  "rest/user/" +uid+ "/picks",
+			url:  "rest/users/" +uid+ "/picks",
 			headers: {
 	  			'Content-Type' : 'application/json'
 	  		},
-	  		data : picksArr
+	  		data : pickJsonArr
 	  	})
-	  	.then(function(res){
-		
-
-			return res;
-		})
 	
 	};	
 

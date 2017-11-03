@@ -27,14 +27,16 @@ angular.module('appModule').component('games', {
         }
         
         vm.convertPicksToJson = function() {
-        		var pickJson = [];
+        		var pickJsonArr = [];
+        		console.log(picks)
         		for (var key in picks) {
-        			pickJson.push(picks[key])
+        			var stringifyPick = JSON.stringify(picks[key])
+        			pickJsonArr.push(stringifyPick)
         		}
         		
-        		console.log('pickJson')
-        		console.log(pickJson)
-        		return pickJson;
+        		console.log('pickJsonArr')
+        		console.log(pickJsonArr)
+        		return pickJsonArr;
         }
         
     //INDEX           

@@ -29,4 +29,9 @@ public class WeekController {
 	public Week showWeek(@PathVariable int wid ) {
 		return dao.showWeek(wid);
 	}
+	
+//	@RequestMapping(path="/user/{uid}/todo", method=RequestMethod.POST)
+//	public Todo create(@PathVariable int uid, @RequestBody String todoJson) {
+//	return dao.create(uid, todoJson);	
+//	}
 }
