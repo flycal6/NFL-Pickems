@@ -1,25 +1,28 @@
+<div id="weekSelectDiv">
+		<strong>WEEK: </strong> <select>
+			<option ng-repeat="week in vm.weeks">{{week.id}}</option>
+		</select>
+	</div>
+
 <table id="gameTable" hng-hide="vm.selected">
-
-	<strong>WEEK: </strong><select>
-		<option ng-repeat="week in vm.weeks">{{week.id}}</option>
-	</select>
-
 	<thead>
 		<tr id="head">
 			<th>HOME</th>
 			<th>Line</th>
 			<th>AWAY</th>
-			<th>TOTAL</th>
+			<th>O/U</th>
 		</tr>
 	</thead>
 	<tr ng-repeat="game in vm.games">
 
-		<td id="gameHomeTeam" ng-click="vm.selectGameHome(game)">{{game.home.city}}
-			{{game.home.name}}</td>
+		<td id="gameHomeTeam" ng-click="vm.selectGameHome(game)"><button
+				class="btn btn-outline-primary btn-sm">{{game.home.city}}
+				{{game.home.name}}</button></td>
 		<td id="gameLine">OFF</td>
-		<td id="gameAwayTeam" ng-click="vm.selectGameAway(game)">{{game.away.city}}
-			{{game.away.name}}</td>
-		<td id="gameTotal">total</td>
+		<td id="gameAwayTeam" ng-click="vm.selectGameAway(game)"><button
+				class="btn btn-outline-primary btn-sm">{{game.away.city}}
+				{{game.away.name}}</button></td>
+		<td id="gameTotal">----</td>
 
 	</tr>
 </table>

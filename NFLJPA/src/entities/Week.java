@@ -20,6 +20,8 @@ public class Week {
     
     private Date date;
     
+    private int gameWeek;
+    
 	@JsonIgnore
 	@OneToMany
 	private List<Game> games;
@@ -30,6 +32,14 @@ public class Week {
 
 	public void setGames(List<Game> games) {
 		this.games = games;
+	}
+
+	public int getGameWeek() {
+		return gameWeek;
+	}
+
+	public void setGameWeek(int gameWeek) {
+		this.gameWeek = gameWeek;
 	}
 
 	public int getId() {

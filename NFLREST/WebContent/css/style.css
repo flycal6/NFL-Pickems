@@ -1,7 +1,15 @@
 #gameTable{
-	width: 600px;
+	width: 800px;
 	text-align:center;
 }
 #head th{
 text-align:center;	
 }
+#gameLine{
+	color:darkgrey;
+}
+#weekSelectDiv{
+	text-align: right;
+	margin: 20px 50px 20px 0px;
+}
+
