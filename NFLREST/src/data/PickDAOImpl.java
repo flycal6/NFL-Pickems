@@ -13,15 +13,18 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import dto.CardDTO;
+import dto.PickDTO;
+import entities.Game;
 import entities.League;
 import entities.Pick;
+import entities.Team;
 import entities.User;
-
 
 @Transactional
 @Repository
-public class PickDAOImpl implements PickDAO{
-	
+public class PickDAOImpl implements PickDAO {
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -29,7 +32,7 @@ public class PickDAOImpl implements PickDAO{
 	public List<Pick> indexPick(int uid) {
 		String query = "SELECT p FROM Pick p WHERE p.user.id = :uid ";
 		List<Pick> picks = em.createQuery(query, Pick.class).setParameter("uid", uid).getResultList();
-		
+
 		System.out.println(picks.get(0));
 		return picks;
 	}
@@ -37,17 +40,26 @@ public class PickDAOImpl implements PickDAO{
 	@Override
 	public Pick showPick(int uid, int pid) {
 		String query = "SELECT p FROM Pick p WHERE p.user.id = :uid AND p.id = :pid";
-		Pick pick = em.createQuery(query, Pick.class).setParameter("uid", uid).setParameter("pid", pid)
-				.getResultList().get(0);
+		Pick pick = em.createQuery(query, Pick.class).setParameter("uid", uid).setParameter("pid", pid).getResultList()
+				.get(0);
 		return pick;
 	}
 
 	@Override
-	public Pick createPick(int uid, String todoJson) {
+	public void createPicks(int uid, String todoJson) {
 		ObjectMapper mapper = new ObjectMapper();
-		Pick pick = null;
 		try {
-			pick = mapper.readValue(todoJson, Pick.class);
+			CardDTO cdto = mapper.readValue(todoJson, CardDTO.class);
+			for(PickDTO pdto : cdto.getPicks()) {
+				Pick p = new Pick();
+				p.setUser(em.find(User.class, uid));
+				Team t = em.find(Team.class, pdto.getTeamId());
+				p.setTeam(t);
+				Game g = em.find(Game.class, pdto.getGameId());
+				p.setGame(g);
+				em.persist(p);
+				
+			}
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -55,11 +67,8 @@ public class PickDAOImpl implements PickDAO{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		User user = em.find(User.class, uid);
-		pick.setUser(user);
-		em.persist(pick);
+		
 		em.flush();
-		return pick;
 	}
 
 }

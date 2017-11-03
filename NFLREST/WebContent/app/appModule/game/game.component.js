@@ -30,13 +30,17 @@ angular.module('appModule').component('games', {
         		var pickJsonArr = [];
         		console.log(picks)
         		for (var key in picks) {
-        			var stringifyPick = JSON.stringify(picks[key])
-        			pickJsonArr.push(stringifyPick)
+//        			var stringifyPick = JSON.stringify(picks[key])
+        			pickJsonArr.push(picks[key])
         		}
+        		var card = {};
+        		card.picks = pickJsonArr;
         		
-        		console.log('pickJsonArr')
-        		console.log(pickJsonArr)
-        		return pickJsonArr;
+//        		console.log('pickJsonArr')
+//        		console.log(pickJsonArr)
+        		gameService.createPicks(JSON.stringify(card)).then(function(){
+        			console.log('created');
+        		});
         }
         
     //INDEX           

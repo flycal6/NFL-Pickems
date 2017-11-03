@@ -1,6 +1,6 @@
 angular.module('appModule').factory('gameService', function($http, $filter, $location, authService){
 	var service = {};
-	var uid = authService.getToken().id;
+	
 	
 	
 	service.indexGame = function(wid){
@@ -11,7 +11,8 @@ angular.module('appModule').factory('gameService', function($http, $filter, $loc
 	};
 	
 //SERVICE TO ADD NEW ITEM TO LIST	  
-  service.createPicks = function(pickJsonArr){
+  service.createPicks = function(card){
+	  var uid = authService.getToken().id;
 	  
 	  return $http({
 	  		method: "POST",
@@ -19,7 +20,7 @@ angular.module('appModule').factory('gameService', function($http, $filter, $loc
 			headers: {
 	  			'Content-Type' : 'application/json'
 	  		},
-	  		data : pickJsonArr
+	  		data : card
 	  	})
 	
 	};	
