@@ -12,4 +12,12 @@ text-align:center;
 	text-align: right;
 	margin: 20px 50px 20px 0px;
 }
-
+button:hover{
+	cursor:pointer;
+}
+#gameHomeTeam button{
+	width: 150px;
+}
+#gameAwayTeam button{
+	width: 150px;
+}
