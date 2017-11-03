@@ -23,11 +23,15 @@ button:hover{
 }
 
 #SubmitPicks button {
-    background-color: red;
-    margin-top: 15px;
-    margin-left: 66%;
+	background-color: red;
+	margin-top: 15px;
+	margin-left: 66%;
 }
 
 #SubmitPicks button:hover {
+<<<<<<< HEAD
     background-color: #bc0d0d;
+=======
+	background-color: #bc0d0d;
+>>>>>>> c0b3bc80f30934d78d138da8e18911b28418c475
 }

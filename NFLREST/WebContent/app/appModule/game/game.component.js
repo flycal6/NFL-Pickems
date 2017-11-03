@@ -8,16 +8,13 @@ angular.module('appModule').component('games', {
         var usersId = null;
         var picks = {}; // THIS IS A HASHMAP
         
-        console.log(usersId);
-
-        
         vm.selectGame = function(game, team) {
             if (vm.selectedArr.indexOf(game[team]) < 0){
-                var opposingTeam = (team === 'home') ? 'away' : 'home';
-                if (vm.selectedArr.indexOf(game[opposingTeam]) >= 0) {
-                        vm.selectedArr.splice(vm.selectedArr.indexOf(game[opposingTeam]), 1);
-                }
-                    vm.selectedArr.push(game[team]);
+				var opposingTeam = (team === 'home') ? 'away' : 'home';
+				if (vm.selectedArr.indexOf(game[opposingTeam]) >= 0) {
+            			vm.selectedArr.splice(vm.selectedArr.indexOf(game[opposingTeam]), 1);
+				}
+            		vm.selectedArr.push(game[team]);
             }
             //console.log(vm.selectedArr)
             
@@ -30,14 +27,14 @@ angular.module('appModule').component('games', {
         }
         
         vm.convertPicksToJson = function() {
-                var pickJson = [];
-                for (var key in picks) {
-                    pickJson.push(picks[key])
-                }
-                
-                console.log('pickJson')
-                console.log(pickJson)
-                return pickJson;
+        		var pickJson = [];
+        		for (var key in picks) {
+        			pickJson.push(picks[key])
+        		}
+        		
+        		console.log('pickJson')
+        		console.log(pickJson)
+        		return pickJson;
         }
         
     //INDEX           
@@ -53,8 +50,6 @@ angular.module('appModule').component('games', {
             })
         }    
         reload();
-  
-        
     },
     controllerAs: 'vm'
 });
