@@ -36,8 +36,8 @@ angular.module('appModule').component('games', {
         		var card = {};
         		card.picks = pickJsonArr;
         		
-//        		console.log('pickJsonArr')
-//        		console.log(pickJsonArr)
+        		console.log('pickJsonArr')
+        		console.log(pickJsonArr)
         		gameService.createPicks(JSON.stringify(card)).then(function(){
         			console.log('created');
         		});
