@@ -4,6 +4,7 @@ package entities;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,8 +23,8 @@ public class Week {
     
     private int gameWeek;
     
-	@JsonIgnore
-	@OneToMany
+//	@JsonIgnore
+	@OneToMany(mappedBy = "week")//(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Game> games;
 
     public List<Game> getGames() {
