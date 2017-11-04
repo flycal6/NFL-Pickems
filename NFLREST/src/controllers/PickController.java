@@ -31,8 +31,8 @@ public class PickController {
 	}
 	
 	@RequestMapping(path = "users/{uid}/picks", method = RequestMethod.POST)
-	public Pick createPick(@PathVariable int uid, @RequestBody String jsonAddress) {
-			return dao.createPick(uid, jsonAddress);
+	public void createPicks(@PathVariable int uid, @RequestBody String jsonAddress) {
+			dao.createPicks(uid, jsonAddress);
 	}
 	
 	

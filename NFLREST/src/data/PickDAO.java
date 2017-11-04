@@ -10,6 +10,6 @@ public interface PickDAO {
 
   public Pick showPick(int uid, int pid);
 
-  public Pick createPick(int uid, String todoJson);
+  public void createPicks(int uid, String todoJson);
 
 }

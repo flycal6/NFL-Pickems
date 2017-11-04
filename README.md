@@ -27,4 +27,5 @@
 ##### We used Agile project management methodologies that allowed us to work creatively and effectively while increasing our productivity.
 
 ### Description
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+This program allows a user to register, log in, and compete against friends in a weekly NFL Pickem contest.

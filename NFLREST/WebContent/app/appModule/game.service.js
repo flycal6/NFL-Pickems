@@ -2,6 +2,7 @@ angular.module('appModule').factory('gameService', function($http, $filter, $loc
 	var service = {};
 	
 	
+	
 	service.indexGame = function(wid){
 		return $http({
 			method: 'GET',
@@ -9,6 +10,20 @@ angular.module('appModule').factory('gameService', function($http, $filter, $loc
 		});
 	};
 	
+//SERVICE TO ADD NEW ITEM TO LIST	  
+  service.createPicks = function(card){
+	  var uid = authService.getToken().id;
+	  
+	  return $http({
+	  		method: "POST",
+			url:  "rest/users/" +uid+ "/picks",
+			headers: {
+	  			'Content-Type' : 'application/json'
+	  		},
+	  		data : card
+	  	})
+	
+	};	
 
 	
 	return service;
