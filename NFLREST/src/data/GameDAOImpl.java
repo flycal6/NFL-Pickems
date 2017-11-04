@@ -58,4 +58,18 @@ public class GameDAOImpl implements GameDAO{
 		return game;
 	}
 
+	@Override
+	public Game createGame(String gameJSON) {
+		ObjectMapper om = new ObjectMapper();
+		
+		try {
+			DTOWeek d = om.readValue(gameJSON, DTOWeek.class);
+			System.out.println(d);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

@@ -18,5 +18,28 @@ angular.module('appModule')
 			});
 		}
 		
+		service.createWeek = function(week){
+			console.log(week);
+			return $http({
+				method: 'POST',
+				url: 'rest/weeks',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				data : week
+			});
+		}
+		
+		service.createGame = function(game){
+			return $http({
+				method: 'POST',
+				url: 'rest/games',
+				headers: {
+					'Content-type': 'application/json'
+				},
+				data: game
+			});
+		}
+		
 		return service;
 	})

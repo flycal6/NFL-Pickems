@@ -60,7 +60,7 @@ public class Game {
 	public int getId() {
 		return id;
 	}
-
+	
 	public Game(int id, Team home, Team away, Week week) {
 		super();
 		this.id = id;
