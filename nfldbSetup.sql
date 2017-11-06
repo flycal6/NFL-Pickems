@@ -28,7 +28,7 @@ INSERT INTO `user` (email,password, fName, lName, points) VALUES ('b@b.com', 'pa
 DROP TABLE IF EXISTS `week`;
 CREATE TABLE `week`(
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` DATE NOT NULL,
+  `date` DATE DEFAULT '0000-00-00',
   `gameWeek` int(4) NOT NULL,
   PRIMARY KEY (`id`)
 );

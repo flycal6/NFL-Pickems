@@ -38,16 +38,20 @@ public class LeagueDAOImpl implements LeagueDAO {
 		League league = em.createQuery(query, League.class).setParameter("lid", lid)
 				.getResultList().get(0);
 		
-//	Boolean userInLeague = null;	
-//	 
-//	String uQuery = "SELECT u From USER u WHERE u.id = :uid";
-//	User user = em.createQuery(query, User.class).setParameter("uid", uid)
-//			.getResultList().get(0);
-////	if(league.getUsers().contains(uid) != null) {
+//		Boolean userInLeague = null;	
+		 
+//		String uQuery = "SELECT u From USER u WHERE u.id = :uid";
+//		User user = em.createQuery(query, User.class).setParameter("uid", uid)
+//				.getResultList().get(0);
+		List<User> leagueUsers = league.getUsers();
 		
-	
-		return league;
-		
+		for (User user : leagueUsers) {
+			if(user.getId() == uid) {
+//				userInLeague = true;
+				return league;
+			}
+		}
+		return null;	
 	}
 
 	@Override

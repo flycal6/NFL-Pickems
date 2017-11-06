@@ -33,6 +33,7 @@ public class LeagueController {
 
 	@RequestMapping(path="/{lid}/{uid}", method=RequestMethod.GET)
 	public League showLeague(@PathVariable int lid, @PathVariable int uid, HttpServletRequest req, HttpServletResponse res) {
+		System.out.println("lid: " + lid + ", uid: " + uid);
 		return lDao.showLeague(lid, uid);
 	}
 	
