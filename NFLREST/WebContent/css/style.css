@@ -34,3 +34,17 @@ button:hover{
 #SubmitPicks button:hover {
     background-color: #bc0d0d;
 }
+#innerContainer{
+	width: 60%;
+	margin: auto;
+	padding: 2%;
+	background-color: rgba(170,170,170, .9); 
+}
+#registerLink{
+	font-size: 22px;
+	text-align:center;
+	font-weight: bold;
+}
+#registerLink:hover{
+	text-decoration: none;
+}
