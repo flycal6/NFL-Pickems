@@ -1,20 +1,20 @@
 angular.module('appModule').component('leagues', {
 	templateUrl : 'app/appModule/league/league.component.html',
-	controller : function($location, nflService, authService) {
+	controller : function($location, nflService, authService, $filter) {
 		var vm = this;
 		vm.leagues = [];
 		vm.selected = null;
 		vm.loading = 0;
-		var user = null;
+		vm.user;
 		
 		// INDEX
 		var reload = function() {
 			vm.loading = 1;
 			nflService.indexLeagues().then(function(res) {
-				user = authService.getToken();
+				vm.user = authService.getToken();
 				vm.loading = 0;
 				console.log('user')
-				 console.log(user)
+				 console.log(vm.user.email)
 				// console.log(res.data)
 				vm.leagues = res.data;
 				console.log(vm.leagues)

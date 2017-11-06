@@ -8,6 +8,9 @@ angular.module('authModule').factory('authService', function($http, $cookies) {
 		console.log(user);
 		$cookies.put('userId', user.id);
 		$cookies.put('userEmail', user.email);
+		$cookies.put('userFName', user.fName);
+		$cookies.put('userLName', user.lName);
+		
 	}
 
 	// Public: Return an object with a user's id and email properties from the cookies
@@ -15,6 +18,8 @@ angular.module('authModule').factory('authService', function($http, $cookies) {
 		var token = {};
 		token.id = $cookies.get('userId');
 		token.email = $cookies.get('userEmail');
+		token.fName = $cookies.get('userFName');
+		token.lName = $cookies.get('userLName');
 		return token;
 	}
 
@@ -22,6 +27,8 @@ angular.module('authModule').factory('authService', function($http, $cookies) {
 	var removeToken = function() {
 		$cookies.remove('userId');
 		$cookies.remove('userEmail');
+		$cookies.remove('userFName');
+		$cookies.remove('userLName');
 	}
 	
 	// Use the auth/register route to create and authenticate the user
