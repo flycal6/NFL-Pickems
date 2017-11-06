@@ -12,21 +12,25 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 	
 	var checkLogin = function(){
 		if(authService.getToken().id == null){
+			$location.path('/login')
 			getUser();
 		}
 	};
 	
 	service.indexLeagues = function(){
+		checkLogin();
 		return $http({
 			method: 'GET',
 			url: 'rest/leagues/'
 		});
 	};
 	
-	service.showLeague = function(id){
+	service.showLeague = function(lid){
+		checkLogin();
+		var uid = user.id
 		return $http({
 			method: 'GET',
-			url: 'rest/leagues/' + id
+			url: 'rest/leagues/' + lid + '/' + uid
 		});
 	};
 	
