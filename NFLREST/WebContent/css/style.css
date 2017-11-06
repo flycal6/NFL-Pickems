@@ -25,9 +25,9 @@ button:hover{
 
 #SubmitPicks button {
 	margin: 0 auto;
-	width: 175px;
+	width: 36%;
 	text-align: center;
-	margin-left: 42%;
+	margin-left: 30%; 
 	margin-top: 20px;
 }
 

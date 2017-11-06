@@ -23,7 +23,7 @@ public class Week {
     
     private int gameWeek;
     
-//	@JsonIgnore
+	@JsonIgnore
 	@OneToMany(mappedBy = "week")//(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Game> games;
 

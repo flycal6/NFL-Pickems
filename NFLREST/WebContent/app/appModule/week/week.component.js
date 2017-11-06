@@ -19,8 +19,8 @@ angular.module('appModule').component('weeks', {
     	var reload = function(){
     		gameService.indexGame()
     		.then(function(res){
-    			console.log(res)
-    			console.log(res.data)
+//    			console.log(res)
+//    			console.log(res.data)
     			vm.games = res.data;
 //    			console.log(vm.games[0].name)
 //    			console.log(vm.games[1].name)
