@@ -4,6 +4,7 @@ public class PickDTO {
 	private int userId;
 	private int gameId;
 	private int teamId;
+	
 	public int getUserId() {
 		return userId;
 	}
