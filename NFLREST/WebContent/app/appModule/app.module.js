@@ -2,7 +2,7 @@ angular.module('appModule', ['ngRoute', 'authModule'])
 .config(function($routeProvider){
 	$routeProvider
 		.when('/', {
-			template: '<nfl></nfl>'
+			template: '<leagues></leagues>'
 		})
 		.when('/leagues', {
 			template: '<leagues></leagues>'
