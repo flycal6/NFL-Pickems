@@ -1,7 +1,9 @@
 <div id="weekSelectDiv">
-		<strong>WEEK: </strong> <select>
-			<option ng-repeat="week in vm.weeks">{{week.gameWeek}}</option>
-		</select>
-	</div>
+	<strong>WEEK: </strong> <select
+		ng-options="week.gameWeek for week in vm.weeks"
+		ng-model="vm.selectedWeek" ng-change="vm.mapWeeks(vm.selectedWeek)">
+	<!--  	<option selected>{{week.gameWeek}}</option>  -->
+	</select>
+</div>
 
 <games>Loading...</games>

@@ -1,4 +1,4 @@
-angular.module('appModule').factory('weekService', function($http, $filter, $location, authService){
+angular.module('appModule').factory('weekService', function($http, $filter, $location, authService, $rootScope){
 	var service = {};
 	var weeks = [];
 	
