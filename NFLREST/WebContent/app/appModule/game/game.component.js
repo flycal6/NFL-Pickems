@@ -1,6 +1,6 @@
 angular.module('appModule').component('games', {
     templateUrl : 'app/appModule/game/game.component.html',
-    controller: function($location, gameService, weekService, authService){
+    controller: function($location, gameService, weekService, authService, $scope){
         var vm = this;
         vm.games = [];
         vm.selected = null;
@@ -26,6 +26,15 @@ angular.module('appModule').component('games', {
             
         }
         
+    	
+    	var wid = 1;
+    	$scope.$on('WeekBC', function(event, args){
+//    		console.log(args.weekNum.gameWeek);
+    		wid = args.weekNum.gameWeek
+    		reload(wid);
+    		})
+    	
+   
         vm.convertPicksToJson = function() {
         		var pickJsonArr = [];
         		console.log(picks)
@@ -45,8 +54,8 @@ angular.module('appModule').component('games', {
         }
         
     //INDEX           
-        var reload = function(){
-            gameService.indexGame()
+        var reload = function(wid){
+            gameService.indexGame(wid)
             .then(function(res){
 //                console.log(res)
 //                console.log(res.data)
