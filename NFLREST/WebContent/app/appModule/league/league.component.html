@@ -1,4 +1,4 @@
-
+<div class="container">
 <!-- Show all leagues -->
 <h1 class="display-2">{{user}}</h1>
 {{"Leagues page"}}
@@ -15,4 +15,10 @@
 <button ng-click="vm.joinLeague(vm.selected.id)">Join League</button>
 </div>
 
+	<!-- **************** only show while waiting for server response *************************** -->
+    <div id="loading" ng-show="vm.loading > 0">
+    		<p class="display-3 text-center lead">Loading</p>
+    		<img class="img-fluid mx-auto d-block" src="./img/catLoader.gif">
+	</div>
 
+</div>

@@ -4,11 +4,13 @@ angular.module('appModule').component('leagues', {
 		var vm = this;
 		vm.leagues = [];
 		vm.selected = null;
-		
+		vm.loading = 0;
 
 		// INDEX
 		var reload = function() {
+			vm.loading = 1;
 			nflService.indexLeagues().then(function(res) {
+				vm.loading = 0;
 				// console.log(res)
 				// console.log(res.data)
 				vm.leagues = res.data;
@@ -19,7 +21,9 @@ angular.module('appModule').component('leagues', {
 		reload();
 
 		var showLeague = function(id) {
+			vm.loading = 1;
 			nflService.showLeague(id).then(function(res) {
+				vm.loading = 0;
 				vm.selected = res.data;
 			});
 		}
@@ -30,7 +34,9 @@ angular.module('appModule').component('leagues', {
 		}
 		
 		vm.joinLeague = function(id){
+			vm.loading = 1;
 			nflService.joinLeague(id).then(function(res){
+				vm.loading = 0;
 				console.log(res.data);
 				$location.path("/leagues");
 			});
