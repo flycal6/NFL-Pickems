@@ -4,7 +4,7 @@ angular.module('appModule').component('weeks', {
 		var vm = this;
 		vm.games = [];
 		vm.weeks = [];
-		vm.selectedWeek = 1;
+		vm.selectedWeek;
 		vm.selected = null;
 		
 		vm.mapWeeks = function(val){
@@ -20,6 +20,7 @@ angular.module('appModule').component('weeks', {
 			weekService.indexWeeks()
 			.then(function(res){
 				vm.weeks = res.data;
+				vm.selectedWeek = vm.weeks[0];
 				console.log(vm.weeks)
 			})
 		}

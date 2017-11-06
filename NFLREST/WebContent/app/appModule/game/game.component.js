@@ -26,21 +26,15 @@ angular.module('appModule').component('games', {
             
         }
         
-        
-        
     	
     	var wid = 1;
     	$scope.$on('WeekBC', function(event, args){
-    		console.log(args.weekNum.gameWeek);
+//    		console.log(args.weekNum.gameWeek);
     		wid = args.weekNum.gameWeek
     		reload(wid);
     		})
     	
    
-    	
-    	
-    	
-        
         vm.convertPicksToJson = function() {
         		var pickJsonArr = [];
         		console.log(picks)
