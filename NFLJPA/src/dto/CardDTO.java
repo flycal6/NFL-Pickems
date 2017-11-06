@@ -13,7 +13,4 @@ public class CardDTO {
 		this.picks = picks;
 	}
 	
-	
-	
-	
 }
