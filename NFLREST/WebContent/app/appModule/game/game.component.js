@@ -7,6 +7,7 @@ angular.module('appModule').component('games', {
         vm.selectedArr = [];
         var usersId = null;
         var picks = {}; // THIS IS A HASHMAP
+        vm.loading = 0;
         
         vm.selectGame = function(game, team) {
             if (vm.selectedArr.indexOf(game[team]) < 0){
@@ -55,11 +56,13 @@ angular.module('appModule').component('games', {
         
     //INDEX           
         var reload = function(wid){
+        	vm.loading = 1;
             gameService.indexGame(wid)
             .then(function(res){
 //                console.log(res)
 //                console.log(res.data)
                 vm.games = res.data;
+                vm.loading = 0;
             })      
             .catch(function(err){
                 console.log(err)

@@ -69,9 +69,11 @@ public class Week {
 		super();
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Week [id=" + id + ", date=" + date + "]";
+		return "Week [id=" + id + ", date=" + date + ", gameWeek=" + gameWeek + "]";
 	}
 
 	@Override

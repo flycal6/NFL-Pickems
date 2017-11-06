@@ -46,7 +46,26 @@ public class WeekDAOImpl implements WeekDAO {
 		try {
 			DTOGame g = om.readValue(weekJSON, DTOGame.class);
 			List<Game> games = new ArrayList<>();
-			week = em.find(Week.class, g.getWeeks().get(0).getWeek());
+			
+//			week = em.find(Week.class, g.getWeeks().get(0).getWeek());
+			
+			String gw = "SELECT w FROM Week w";
+			List<Week> weeks = em.createQuery(gw, Week.class).getResultList();
+			int lastWeek = weeks.size() - 1;
+			int lastGameWeek = weeks.get(lastWeek).getGameWeek();
+			
+			if(lastGameWeek > 16) {
+				lastGameWeek = 1;
+				week.setGameWeek(lastGameWeek);					
+			}
+			else {
+				lastGameWeek ++;
+				week.setGameWeek(lastGameWeek);					
+			}
+			
+			em.persist(week);
+			em.flush();
+			
 			for(DTOWeek dtow : g.getWeeks()) {
 				System.out.println("em week: " + week);
 				String q = "SELECT t FROM Team t WHERE t.abbr = :abbr"; 
@@ -59,18 +78,13 @@ public class WeekDAOImpl implements WeekDAO {
 							.getResultList().get(0);
 				
 				Game game = new Game();
-				System.out.println("1");
 				game.setAway(away);
 				game.setHome(home);
 				game.setWeek(week);
-				System.out.println("game to persist: " + game);
 				em.persist(game);
-				System.out.println("game after persist: " + game);
-				System.out.println("2");
 				games.add(game);
-				System.out.println("3");
-				week.setGameWeek(dtow.getGameWeek());
-				System.out.println("4");
+
+				
 			}
 			em.flush();
 			week.setGames(games);
