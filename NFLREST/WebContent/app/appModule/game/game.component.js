@@ -8,7 +8,7 @@ angular.module('appModule').component('games', {
         var usersId = null;
         var picks = {}; // THIS IS A HASHMAP
         vm.loading = 0;
-        var previousUserPicks = [];
+        vm.previousUserPicks = [];
         
         //INDEX           
         var reload = function(wid){
@@ -28,8 +28,8 @@ angular.module('appModule').component('games', {
         		console.log('pick response')
         		console.log(res.data)
 //	    			console.log('games')
-        		previousUserPicks = res.data;
-        		console.log(previousUserPicks)
+        		vm.previousUserPicks = res.data;
+        		console.log(vm.previousUserPicks)
         		
         		gamePickStatus();
         	});
@@ -85,17 +85,21 @@ angular.module('appModule').component('games', {
     	
     	var gamePickStatus = function(){
     		console.log('calling gamePickStatus()')
-    		console.log(previousUserPicks)
-    		previousUserPicks.forEach(function(pick, idx){
+    		console.log(vm.previousUserPicks)
+    		console.log('games')
+    		console.log(vm.games)
+    		vm.previousUserPicks.forEach(function(pick, idx){
     			vm.games.forEach(function(game, idx){
     				if(pick.game.id == game.id){
     					if(pick.team.id == game.home.id){
     						console.log('home pick');
     						console.log(pick.team.name);
+    						vm.selectGame(game, 'home');
     					}
     					else if(pick.team.id == game.away.id){    						
     						console.log('away pick');
     						console.log(pick.team.name);
+    						vm.selectGame(game, 'away');
     					}
     				}
     			})
