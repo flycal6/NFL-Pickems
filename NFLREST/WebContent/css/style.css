@@ -1,7 +1,9 @@
 #head th {
 	text-align: center;
 }
-
+body{
+	background-color: darkgrey;
+}
 #gameLine {
 	color: darkgrey;
 }
