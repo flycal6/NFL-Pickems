@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Result {
@@ -18,6 +19,9 @@ public class Result {
 	@OneToOne
 	@JoinColumn(name = "id")
 	private Game game;
+	
+	@Transient  // non-persisted value for ease of mapping via Object Mapper
+	private int gameId;
 	
 	private int homeScore;
 	
@@ -69,6 +73,14 @@ public class Result {
 
 	public int getId() {
 		return id;
+	}
+
+	public int getGameId() {
+		return gameId;
+	}
+
+	public void setGameId(int gameId) {
+		this.gameId = gameId;
 	}
 
 	public Result(int id, Game game, int homeScore, int awayScore) {
