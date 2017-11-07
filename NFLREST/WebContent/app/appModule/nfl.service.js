@@ -25,6 +25,18 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 		});
 	};
 	
+	service.createLeague = function(uid, league) {
+		checkLogin();
+		  return $http({
+			  method  : "POST",
+			  url     : 'rest/leagues/' + uid,
+			  headers : {
+			        'Content-Type' : 'application/json'
+			      },
+			  data    : league
+		  })
+	  };
+	
 	service.showLeague = function(lid){
 		checkLogin();
 		var uid = user.id

@@ -1,27 +1,25 @@
-/* #gameTable{
-    width: 800px;
-    text-align:center;
-    margin: 0 auto;
-} */
-#head th{
-text-align:center;    
+#head th {
+	text-align: center;
 }
-#gameLine{
-    color:darkgrey;
+body{
+	background-color: darkgrey;
+	/* background-image: url('https://fthmb.tqn.com/OY0GrqIaxUwokki5-ebX6P1Mpnc=/768x0/filters:no_upscale()/GettyImages-157435789-58402aec3df78c0230d2d44f.jpg');
+	background-size: cover;
+	background-repeat: no-repeat; */
 }
-/* #weekSelectDiv{
-    text-align: right;
-    margin: 20px 50px 20px 0px;
-} */
-button:hover{
-    cursor:pointer;
+#bgdiv{
+	background-image: url('https://fthmb.tqn.com/OY0GrqIaxUwokki5-ebX6P1Mpnc=/768x0/filters:no_upscale()/GettyImages-157435789-58402aec3df78c0230d2d44f.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 700px;
 }
-/* #gameHomeTeam button{
-    width: 200px;
+#gameLine {
+	color: darkgrey;
 }
-#gameAwayTeam button{
-    width: 200px;
-} */
+
+button:hover {
+	cursor: pointer;
+}
 
 #SubmitPicks button {
 	margin-bottom: 1em;
@@ -31,31 +29,66 @@ button:hover{
 	margin-top: 20px; */
 }
 
-#cancelButton{
-	min-width: 4em;	
+#cancelButton {
+	min-width: 4em;
 	margin-bottom: 1em;
 	margin-right: 2em;
+}
+
+#leagueIndexTable:hover{
+    cursor:pointer;
+    /* background-color: rgba(54, 58, 64, 0.03); */
+    box-shadow: 0 0 10px lightblue;
+    
 }
 
 /* #SubmitPicks button:hover {
     background-color: #bc0d0d;
 } */
-/* #innerContainer{
+#innerContainer{
+
 	width: 60%;
 	margin: auto;
+	margin-top: 15px;
 	padding: 2%;
-	background-color: rgba(170,170,170, .9); 
-} */
-#registerLink{
-	font-size: 22px;
+	background-color: rgba(170, 170, 170, .8);
 	text-align:center;
+}
+
+#innerContainer button {
+	margin: auto;
+	width: 220px;
+}
+
+#newLeagueFormDiv {
+	text-align: center;
+	width: 60%;
+	margin: auto;
+	margin-top: 15px;
+	padding: 2%;
+	background-color: rgba(170, 170, 170, .8);
+}
+.newInputs{
+	width: 300px;
+}
+
+#newLeagueFormDiv button {
+	width: 170px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#registerLink {
+	font-size: 22px;
+	text-align: center;
 	font-weight: bold;
 }
-#registerLink:hover{
+
+#registerLink:hover {
 	text-decoration: none;
 }
 
-@media (max-width: 576px) {
+@media ( max-width : 576px) {
 	#gameHomeTeam, #gameAwayTeam {
 		padding: .35rem;
 	}

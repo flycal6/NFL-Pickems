@@ -1,4 +1,52 @@
+
 <div class="container_fluid">
-	<h1 class="display">JDBC NFL Pick 'Em</h1>
-	
+<div id="bgdiv">
+<br><br><br>
+	<div id='innerContainer' ng-hide="vm.newLeague">
+		<h1 class="display"><strong>JDBC NFL Pick 'Em</strong></h1>
+
+		<button class="btn btn-primary" ng-click="vm.showNewLeagueForm()">Create
+			New League</button>
+		<a href="#/leagues"><button class="btn btn-primary"
+				ng-click="vm.showNewLeagueForm();">View Existing Leagues</button></a><br>
+
+
+				
+				<!-- ANGULAR PIE CHART  -->
+				
+		<!-- <div ng-controller='PieCtrl'>
+			<canvas id="pie" class="chart chart-pie" chart-data="data"
+				chart-labels="labels" chart-options="options">
+			</canvas>
+		</div> -->
+		
+
+	</div>
+
+
+	<div id="newLeagueFormDiv" ng-show="vm.newLeague">
+		<h2><strong>Create Your New League!</strong></h2>
+		<form>
+			<input class="newInputs" placeholder="League Name:" ng-model="vm.league.name"><br>
+			<input class="newInputs" placeholder="League Cost:" ng-model="vm.league.cost"><br>
+			<input type="radio" name="restrictions" ng-model='vm.league.isPublic'
+				value="true" checked> Public <input type="radio"
+				name="restrictions" ng-model='vm.league.isPublic' value="false">
+			Private<br> <br>
+
+
+			<button type="btn" class="btn btn-success"
+				ng-click="vm.createLeague(vm.league)">Create League</button>
+			<br>
+			<button type="btn" class="btn btn-warning"
+				ng-click='vm.cancelNewLeagueForm()'>Cancel</button>
+		</form>
+	</div>
+
+	<!-- **************** only show while waiting for server response *************************** -->
+	<div id="loading" ng-show="vm.loading > 0">
+		<p class="display-3 text-center lead">Loading</p>
+		<img class="img-fluid mx-auto d-block" src="./img/footballLoader.gif">
+	</div>
+</div>
 </div>

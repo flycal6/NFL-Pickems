@@ -1,6 +1,7 @@
 package data;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -60,6 +61,7 @@ public class LeagueDAOImpl implements LeagueDAO {
 		League league = null;
 		try {
 			league = mapper.readValue(todoJson, League.class);
+			System.out.println(league);
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -68,9 +70,15 @@ public class LeagueDAOImpl implements LeagueDAO {
 			e.printStackTrace();
 		}
 		User user = em.find(User.class, uid);
-		league.getUsers().add(user);
 		em.persist(league);
 		em.flush();
+		System.out.println("League IMPL: ");
+		System.out.println(league);
+		System.out.println("User IMPL: ");
+		System.out.println(user);
+		List<User> userList = new ArrayList<>();
+		userList.add(user);
+		league.setUsers(userList);
 		return league;
 	}
 

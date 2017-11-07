@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +31,12 @@ public class LeagueController {
     public Set<League> index(HttpServletRequest req, HttpServletResponse res) {
 		return lDao.index();
 	}
+	
+	@RequestMapping(path="/{uid}", method=RequestMethod.POST)
+    public League createLeague(@PathVariable int uid, @RequestBody String leagueJson) {
+    return lDao.createLeague(uid, leagueJson);    
+    }
+	
 
 	@RequestMapping(path="/{lid}/{uid}", method=RequestMethod.GET)
 	public League showLeague(@PathVariable int lid, @PathVariable int uid, HttpServletRequest req, HttpServletResponse res) {

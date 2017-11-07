@@ -1,52 +1,60 @@
 <!DOCTYPE html>
 <html ng-app='appModule'>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- css -->
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/style.css">
-        <link rel="icon"  type="image/png" href="./img/oilers-icon.png">
-        
-        
-        <!-- Angular/3rd Party -->
-        <script src = "./js/angularjs/angular.min.js"></script>
-        <!-- ngRoute -->
-        <script src = "./js/angularjs/angular-route.min.js"></script>
-        <!-- cookies for login/registration -->
-        <script src = "./js/angularjs/angular-cookies.min.js"></script>
-        <!-- bootstrap dependencies -->
-        <script src = "./js/jquery-3.2.1.min.js"></script>
-        <script src = "./js/popper.min.js"></script>
-        <!-- Modules -->
-        <script src = "./app/appModule/app.module.js"></script>
-        <script src = "./app/authModule/auth.module.js"></script>
-        <!-- Service -->
-        <script src = "./app/appModule/nfl.service.js"></script>
-        <script src = "./app/authModule/auth.service.js"></script>
-        <script src = "./app/appModule/game.service.js"></script>
-        <script src = "./app/appModule/week.service.js"></script>
-        <script src = "./app/appModule/gameParse.service.js"></script>
-        <!-- Components -->
-        <script src = "./app/appModule/nfl/nfl.component.js"></script>
-        <script src = "./app/appModule/navigation/navigation.component.js"></script>
-        <script src = "./app/appModule/league/league.component.js"></script>
-        <script src = "./app/appModule/notFound/notFound.component.js"></script>
-        <script src = "./app/authModule/login/login.component.js"></script>
-        <script src = "./app/authModule/logout/logout.component.js"></script>
-        <script src = "./app/authModule/register/register.component.js"></script>
-        <script src = "./app/appModule/week/week.component.js"></script>
-        <script src = "./app/appModule/game/game.component.js"></script>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- css -->
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="icon" type="image/png" href="./img/oilers-icon.png">
+
+
+<!-- Angular/3rd Party -->
+<script src="./js/angularjs/angular.min.js"></script>
+<!-- ngRoute -->
+<script src="./js/angularjs/angular-route.min.js"></script>
+<!-- cookies for login/registration -->
+<script src="./js/angularjs/angular-cookies.min.js"></script>
+<!-- Charts JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="js/angular-chart.min.js"></script>
+<!-- bootstrap dependencies -->
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/popper.min.js"></script>
+<!-- Modules -->
+<script src="./app/appModule/app.module.js"></script>
+<script src="./app/authModule/auth.module.js"></script>
+<script src="./app/chartModule/chart.module.js"></script>
+<!-- Service -->
+<script src="./app/appModule/nfl.service.js"></script>
+<script src="./app/authModule/auth.service.js"></script>
+<script src="./app/appModule/game.service.js"></script>
+<script src="./app/appModule/week.service.js"></script>
+<script src="./app/appModule/gameParse.service.js"></script>
+<script src="./app/appModule/pick.service.js"></script>
+<!-- Components -->
+<script src="./app/appModule/nfl/nfl.component.js"></script>
+<script src="./app/appModule/navigation/navigation.component.js"></script>
+<script src="./app/appModule/league/league.component.js"></script>
+<script src="./app/appModule/notFound/notFound.component.js"></script>
+<script src="./app/authModule/login/login.component.js"></script>
+<script src="./app/authModule/logout/logout.component.js"></script>
+<script src="./app/authModule/register/register.component.js"></script>
+<script src="./app/appModule/week/week.component.js"></script>
+<script src="./app/appModule/game/game.component.js"></script>
+<script src="./app/appModule/gameParse/gameParse.component.js"></script>
         <script src = "./app/appModule/gameParse/gameParse.component.js"></script>
         <script src = "./app/appModule/stats/stats.component.js"></script>
-        <title>NFL Pick'ems</title>
-    </head>
-    <body>
-    		<navigation></navigation>
-		<ng-view></ng-view>
-		
-		
-		<script src="./js/bootstrap.min.js"></script>
-		
-    </body>
+<title>NFL Pick'ems</title>
+</head>
+<body>
+	<navigation></navigation>
+	<ng-view></ng-view>
+
+
+	<script src="./js/bootstrap.min.js"></script>
+
+</body>
 </html>
