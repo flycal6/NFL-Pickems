@@ -1,27 +1,14 @@
-/* #gameTable{
-    width: 800px;
-    text-align:center;
-    margin: 0 auto;
-} */
-#head th{
-text-align:center;    
+#head th {
+	text-align: center;
 }
-#gameLine{
-    color:darkgrey;
+
+#gameLine {
+	color: darkgrey;
 }
-/* #weekSelectDiv{
-    text-align: right;
-    margin: 20px 50px 20px 0px;
-} */
-button:hover{
-    cursor:pointer;
+
+button:hover {
+	cursor: pointer;
 }
-/* #gameHomeTeam button{
-    width: 200px;
-}
-#gameAwayTeam button{
-    width: 200px;
-} */
 
 #SubmitPicks button {
 	margin-bottom: 1em;
@@ -31,8 +18,8 @@ button:hover{
 	margin-top: 20px; */
 }
 
-#cancelButton{
-	min-width: 4em;	
+#cancelButton {
+	min-width: 4em;
 	margin-bottom: 1em;
 	margin-right: 2em;
 }
@@ -47,22 +34,47 @@ button:hover{
 /* #SubmitPicks button:hover {
     background-color: #bc0d0d;
 } */
-/* #innerContainer{
+#innerContainer{
+
 	width: 60%;
 	margin: auto;
+	margin-top: 25px;
 	padding: 2%;
-	background-color: rgba(170,170,170, .9); 
-} */
-#registerLink{
-	font-size: 22px;
+	background-color: rgba(170, 170, 170, .8);
 	text-align:center;
+}
+
+#innerContainer button {
+	margin: auto;
+	width: 200px;
+}
+
+#newLeagueFormDiv {
+	text-align: center;
+	width: 60%;
+	margin: auto;
+	margin-top: 15px;
+	padding: 2%;
+	background-color: rgba(170, 170, 170, .8);
+}
+
+#newLeagueFormDiv button {
+	width: 170px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#registerLink {
+	font-size: 22px;
+	text-align: center;
 	font-weight: bold;
 }
-#registerLink:hover{
+
+#registerLink:hover {
 	text-decoration: none;
 }
 
-@media (max-width: 576px) {
+@media ( max-width : 576px) {
 	#gameHomeTeam, #gameAwayTeam {
 		padding: .35rem;
 	}
