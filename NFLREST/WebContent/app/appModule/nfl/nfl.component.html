@@ -3,7 +3,7 @@
 <div id="bgdiv">
 <br><br>
 	<div id='innerContainer' ng-hide="vm.newLeague">
-		<h1 class="display">JDBC NFL Pick 'Em</h1>
+		<h1 class="display"><strong>JDBC NFL Pick 'Em</strong></h1>
 
 		<button class="btn btn-primary" ng-click="vm.showNewLeagueForm()">Create
 			New League</button>
@@ -25,7 +25,7 @@
 
 
 	<div id="newLeagueFormDiv" ng-show="vm.newLeague">
-		<h2>Create Your New League!</h2>
+		<h2><strong>Create Your New League!</strong></h2>
 		<form>
 			<input placeholder="League Name:" ng-model="vm.league.name"><br>
 			<input placeholder="League Cost:" ng-model="vm.league.cost"><br>
