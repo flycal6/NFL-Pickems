@@ -1,6 +1,6 @@
 angular.module('appModule').component('games', {
     templateUrl : 'app/appModule/game/game.component.html',
-    controller: function($location, gameService, weekService, authService, $scope){
+    controller: function($location, gameService, weekService, authService, $scope, pickService){
         var vm = this;
         vm.games = [];
         vm.selected = null;
@@ -17,7 +17,9 @@ angular.module('appModule').component('games', {
 				}
             		vm.selectedArr.push(game[team]);
             }
-            //console.log(vm.selectedArr)
+            console.log("team clicked")
+            // use to compare against pick
+            console.log(game[team])
             
             var pickJson = {};
             pickJson.teamId = game[team].id;
@@ -28,7 +30,7 @@ angular.module('appModule').component('games', {
         }
         
     	
-    	var wid = 1;
+//    	var wid = 1;
     	$scope.$on('WeekBC', function(event, args){
 //    		console.log(args.weekNum.gameWeek);
     		wid = args.weekNum.gameWeek
@@ -67,6 +69,11 @@ angular.module('appModule').component('games', {
             .catch(function(err){
                 console.log(err)
             })
+            
+            pickService.getUserPicks().then(function(res){
+	    			console.log('pick response')
+	    			console.log(res)
+    			});
         }    
         reload();
     },
