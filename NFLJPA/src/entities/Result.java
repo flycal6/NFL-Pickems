@@ -22,6 +22,26 @@ public class Result {
 	private int homeScore;
 	
 	private int awayScore;
+	private String awayAbbr;
+	private String homeAbbr;
+	
+	
+	public String getAwayAbbr() {
+		return awayAbbr;
+	}
+
+	public void setAwayAbbr(String awayAbbr) {
+		this.awayAbbr = awayAbbr;
+	}
+
+	public String getHomeAbbr() {
+		return homeAbbr;
+	}
+
+	public void setHomeAbbr(String homeAbbr) {
+		this.homeAbbr = homeAbbr;
+	}
+
 
 	public Game getGame() {
 		return game;

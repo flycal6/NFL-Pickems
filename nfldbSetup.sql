@@ -188,9 +188,12 @@ CREATE TABLE `result` (
   `gameId` int(11) NOT NULL,
   `homeScore` int(5) NOT NULL,
   `awayScore` int(5) NOT NULL,
+  `homeAbbr` varchar(10),
+  `awayAbbr` varchar(10),
   PRIMARY KEY (`id`),
   FOREIGN KEY (`gameId`)
     REFERENCES `game` (`id`)
 );
 
-INSERT INTO `result` (gameId, homeScore, awayScore) VALUES (1,13,20);
+INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (1,13,20,'NYJ', 'BUF');
+INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (2,21,35,'CAR', 'ATL');
