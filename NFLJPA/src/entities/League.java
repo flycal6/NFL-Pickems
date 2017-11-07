@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
 public class League {
@@ -24,7 +28,7 @@ public class League {
 	
 	private double cost;
 	
-	
+	@JsonIgnore
 	@ManyToMany(mappedBy="leagues", fetch=FetchType.EAGER)
 	private List<User> users;
 

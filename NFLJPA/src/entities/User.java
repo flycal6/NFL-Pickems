@@ -12,7 +12,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 
@@ -36,6 +38,7 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<Pick> picks;
 
+	
 	@JsonIgnore
 	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name = "user_league", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "leagueId"))

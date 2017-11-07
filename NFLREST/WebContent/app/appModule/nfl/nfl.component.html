@@ -13,15 +13,15 @@
 <div id="newLeagueFormDiv" ng-show="vm.newLeague">
 	<h2>Create Your New League!</h2>
 	<form>
-		<input placeholder="League Name:" ng-model="league.name"><br>
-		<input placeholder="League Cost:" ng-model="league.cost"><br>
-		<input type="radio" name="restrictions" value="public" checked>
-		Public <input type="radio" name="restrictions" value="private">
+		<input placeholder="League Name:" ng-model="vm.league.name"><br>
+		<input placeholder="League Cost:" ng-model="vm.league.cost"><br>
+		<input type="radio" name="restrictions" ng-model='vm.league.isPublic' value="true" checked>
+		Public <input type="radio" name="restrictions" ng-model='vm.league.isPublic' value="false">
 		Private<br> <br>
 
 
 		<button type="btn" class="btn btn-success"
-			ng-click="vm.create(chipotleOrder)">Create League</button>
+			ng-click="vm.createLeague(vm.league)">Create League</button>
 		<br>
 		<button type="btn" class="btn btn-warning"
 			ng-click='vm.cancelNewLeagueForm()'>Cancel</button>
