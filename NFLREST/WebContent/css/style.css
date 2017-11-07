@@ -37,6 +37,13 @@ button:hover{
 	margin-right: 2em;
 }
 
+#leagueIndexTable:hover{
+    cursor:pointer;
+    /* background-color: rgba(54, 58, 64, 0.03); */
+    box-shadow: 0 0 10px lightblue;
+    
+}
+
 /* #SubmitPicks button:hover {
     background-color: #bc0d0d;
 } */
