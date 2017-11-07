@@ -2,6 +2,9 @@ package controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +31,13 @@ public class WeekController {
 //		System.out.println("in controller");
 //		System.out.println(weekJSON);
 		return dao.createWeek(weekJSON);
+	}
+	
+	@RequestMapping(path = "weeks", method = RequestMethod.PUT)
+	public Week updateWeek(@RequestBody String weekJSON, HttpServletRequest req, HttpServletResponse res) {
+		System.out.println("controller Week PUT");
+		System.out.println(weekJSON);
+		return dao.updateWeek(weekJSON);
 	}
 	
 	@RequestMapping(path = "weeks/{wid}", method = RequestMethod.GET)

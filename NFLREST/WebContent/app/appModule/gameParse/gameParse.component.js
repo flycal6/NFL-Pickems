@@ -34,7 +34,21 @@ angular.module('appModule').component('gameParse', {
 			
 		});
 		
-		
+		vm.updateWeek = function(){
+			for(game in vm.games){
+				var gameObj = {};
+				gameObj.gameId = 1; // default value for object mapping in Impl
+				gameObj.awayAbbr = vm.games[game].away.abbr;
+				gameObj.awayScore = vm.games[game].away.score.T;
+				gameObj.homeAbbr = vm.games[game].home.abbr;
+				gameObj.homeScore = vm.games[game].home.score.T;
+				console.log(gameObj);
+			}
+//			gameParseService.updateWeek().then(function(res){
+//				console.log('updateWeek() response');
+//				console.log(res);
+//			})
+		}
 		
 	},
 	controllerAs: 'vm'

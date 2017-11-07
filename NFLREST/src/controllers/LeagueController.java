@@ -33,8 +33,8 @@ public class LeagueController {
 	}
 	
 	@RequestMapping(path="/{uid}", method=RequestMethod.POST)
-    public League createLeague(@PathVariable int uid, @RequestBody String todoJson) {
-    return lDao.createLeague(uid, todoJson);    
+    public League createLeague(@PathVariable int uid, @RequestBody String leagueJson) {
+    return lDao.createLeague(uid, leagueJson);    
     }
 	
 
