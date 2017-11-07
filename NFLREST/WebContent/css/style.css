@@ -68,6 +68,9 @@ button:hover {
 	padding: 2%;
 	background-color: rgba(170, 170, 170, .8);
 }
+.newInputs{
+	width: 300px;
+}
 
 #newLeagueFormDiv button {
 	width: 170px;
