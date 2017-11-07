@@ -4,7 +4,7 @@ angular.module('appModule').component('nfl', {
 		var vm = this;
 		vm.newLeague = null;
 		vm.league = null;
-		
+		vm.loading = 0;
 
 		vm.showNewLeagueForm = function() {
 			vm.newLeague = 1;
@@ -19,12 +19,14 @@ angular.module('appModule').component('nfl', {
 //		   }
 		 
 		 vm.createLeague = function(league){
+			 vm.loading = 1;
 			 var uid = authService.getToken().id;
 		        nflService.createLeague(uid, league)
 		        .then(function(res){
 		            console.log('Create League Response: ');
 		            console.log(res);
 		            $location.path('/leagues')
+		            vm.loading = 0;
 		        })
 		        .catch(console.error)
 		        
