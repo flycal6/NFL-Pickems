@@ -1,10 +1,15 @@
 angular.module('appModule').component('nfl', {
 	templateUrl : 'app/appModule/nfl/nfl.component.html',
-	controller : function(nflService, authService, $location) {
+	controller : function(nflService, authService, $location, $scope) {
 		var vm = this;
 		vm.newLeague = null;
 		vm.league = null;
 		vm.loading = 0;
+		
+		
+		$scope.$on('Logged Out Message', function(){
+			vm.newLeague = 0
+		});
 		
 		var getUser = function(){
 			user = authService.getToken();
