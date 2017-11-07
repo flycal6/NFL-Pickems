@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import data.WeekDAO;
+import entities.Result;
 import entities.Week;
 
 @RestController
@@ -34,10 +35,10 @@ public class WeekController {
 	}
 	
 	@RequestMapping(path = "weeks", method = RequestMethod.PUT)
-	public Week updateWeek(@RequestBody String weekJSON, HttpServletRequest req, HttpServletResponse res) {
+	public List<Result> updateWeek(@RequestBody String weekJSON, HttpServletRequest req, HttpServletResponse res) {
 		System.out.println("controller Week PUT");
 		System.out.println(weekJSON);
-		return dao.updateWeek(weekJSON);
+		return dao.setWeekResults(weekJSON);
 	}
 	
 	@RequestMapping(path = "weeks/{wid}", method = RequestMethod.GET)

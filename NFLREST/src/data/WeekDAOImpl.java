@@ -9,9 +9,11 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entities.Game;
+import entities.Result;
 import entities.Team;
 import entities.Week;
 
@@ -101,11 +103,42 @@ public class WeekDAOImpl implements WeekDAO {
 	}
 
 	@Override
-	public Week updateWeek(String weekJSON) {
+	public List<Result> setWeekResults(String weekJSON) {
 		String q = "SELECT w FROM Week w WHERE w.id = (SELECT MAX(w.id) FROM w)";
-		
 		Week w = em.createQuery(q, Week.class).getResultList().get(0);
-		System.out.println("week id: " + w);
+//		System.out.println("week id: " + w);
+		List<Game> games = w.getGames();
+		
+		ObjectMapper om = new ObjectMapper();
+//		om.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		System.out.println("1");
+		try {
+			List<Result> results = om.readValue(weekJSON, om.getTypeFactory().constructCollectionType(List.class, Result.class));
+			System.out.println("2");
+			
+			for (Game game : games) {
+				for (Result result : results) {
+					if(game.getAway().getAbbr().equals(result.getAwayAbbr())){
+						System.out.println("3");
+						result.setGame(game);
+						System.out.println("game: " + game + ", result: " + result);
+						System.out.println("4");
+						em.persist(result);
+						System.out.println("5");
+						em.flush();
+						System.out.println("6");
+						break;
+					}
+				}
+			}
+			
+//			Result r = om.readValue(weekJSON, Result.class); 
+			return results;
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 	
