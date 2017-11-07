@@ -1,35 +1,42 @@
 <div class="container">
-<h1>Game Parser Component</h1>
-
-<!-- <ul ng-repeat="g in vm.games">
-	<li>{{g.home.abbr}}: {{g.home.score.T}}</li>
-	<li>{{g.away.abbr}}: {{g.away.score.T}}</li>
-</ul> -->
-<button class="btn btn-primary" ng-click="vm.createWeek()">Create Week</button>
-
-<form class="form form-inline float-right">
-	<input class="form-control" type="number"  placeholder="week number">
-	<button class="btn btn-primary" ng-click="vm.updateWeek()">Update Week</button>
-</form>
-
-
-<div class="game"  ng-repeat="g in vm.games" ng-class="todo.completed? 'text-secondary strike' : ''">
-  <div class="row">
-    <div class="col-4">
-      Home: {{g.home.abbr}}
-    </div>
-    <div class="col">
-      {{g.home.score.T}}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-4">
-      Away: {{g.away.abbr}}
-    </div>
-    <div class="col">
-      {{g.away.score.T}}
-    </div>
-  </div>
-  <hr />
-</div>
+	<h1>Game Parser Component</h1>
+	
+	<!-- <ul ng-repeat="g in vm.games">
+		<li>{{g.home.abbr}}: {{g.home.score.T}}</li>
+		<li>{{g.away.abbr}}: {{g.away.score.T}}</li>
+	</ul> -->
+	<button class="btn btn-primary" ng-click="vm.createWeek()">Create Week</button>
+	
+	<form class="form form-inline float-right">
+		<input class="form-control" type="number"  placeholder="week number">
+		<button class="btn btn-primary" ng-click="vm.updateWeek()">Update Week</button>
+	</form>
+	
+	
+	<div class="game"  ng-repeat="g in vm.games" ng-class="todo.completed? 'text-secondary strike' : ''">
+	  <div class="row">
+	    <div class="col-4">
+	      Home: {{g.home.abbr}}
+	    </div>
+	    <div class="col">
+	      {{g.home.score.T}}
+	    </div>
+	  </div>
+	  <div class="row">
+	    <div class="col-4">
+	      Away: {{g.away.abbr}}
+	    </div>
+	    <div class="col">
+	      {{g.away.score.T}}
+	    </div>
+	  </div>
+	  <hr />
+	</div>
+	
+	
+	<!-- **************** only show while waiting for server response *************************** -->
+	<div id="loading" ng-show="vm.loading > 0">
+		<p class="display-3 text-center lead">Loading</p>
+		<img class="img-fluid mx-auto d-block" src="./img/footballLoader.gif">
+	</div>
 </div>

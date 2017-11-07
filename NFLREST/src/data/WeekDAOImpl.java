@@ -102,8 +102,10 @@ public class WeekDAOImpl implements WeekDAO {
 
 	@Override
 	public Week updateWeek(String weekJSON) {
-		System.out.println("update IMPL");
-		System.out.println(weekJSON);
+		String q = "SELECT w FROM Week w WHERE w.id = (SELECT MAX(w.id) FROM w)";
+		
+		Week w = em.createQuery(q, Week.class).getResultList().get(0);
+		System.out.println("week id: " + w);
 		return null;
 	}
 	

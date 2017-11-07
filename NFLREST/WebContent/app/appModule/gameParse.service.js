@@ -34,14 +34,14 @@ angular.module('appModule')
 			});
 		}
 		
-		service.updateWeek = function(weekGames){
+		service.updateWeek = function(weekGamesArr){
 			return $http({
 				method: 'PUT',
 				url: 'rest/weeks',
 				headers: {
 					'Content-type': 'application/json'
 				},
-				data: weekGames
+				data: weekGamesArr
 			});
 		}
 		
