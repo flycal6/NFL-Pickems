@@ -38,6 +38,15 @@ angular.module('appModule').component('leagues', {
 
 		}
 		
+	    vm.createLeague = function(uid, league){
+	        nflService.createLeague(uid, league)
+	        .then(function(res){
+	            $scope.$on('createdLeague', console.log("New League added via $rootScope"))
+	        })
+	        .catch(console.error)
+	        
+	    }
+		
 		vm.joinLeague = function(lid){
 			console.log('join league id')
 			console.log(lid)
