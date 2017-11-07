@@ -11,4 +11,6 @@ public interface WeekDAO {
 	public Week showWeek(int wid);
 
 	public Week createWeek(String weekJSON);
+
+	public Week updateWeek(String weekJSON);
 }

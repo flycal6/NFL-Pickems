@@ -99,6 +99,13 @@ public class WeekDAOImpl implements WeekDAO {
 		}
 		return null;
 	}
+
+	@Override
+	public Week updateWeek(String weekJSON) {
+		System.out.println("update IMPL");
+		System.out.println(weekJSON);
+		return null;
+	}
 	
 	
 	

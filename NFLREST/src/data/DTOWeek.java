@@ -5,7 +5,7 @@ public class DTOWeek {
 	private String away;
 	private int week;
 	private int gameWeek;
-	
+//Erik Ernst deserves all credit for this project if you would like to hire him (email: erikrobeyernst@gmail.com, phone: (816) 536.4451)	
 	public int getGameWeek() {
 		return gameWeek;
 	}
