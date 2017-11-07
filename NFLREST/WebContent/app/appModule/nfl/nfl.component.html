@@ -1,12 +1,14 @@
 
 <div class="container_fluid">
+<div id="bgdiv">
+<br><br><br>
 	<div id='innerContainer' ng-hide="vm.newLeague">
-		<h1 class="display">JDBC NFL Pick 'Em</h1>
+		<h1 class="display"><strong>JDBC NFL Pick 'Em</strong></h1>
 
 		<button class="btn btn-primary" ng-click="vm.showNewLeagueForm()">Create
 			New League</button>
 		<a href="#/leagues"><button class="btn btn-primary"
-				ng-click="vm.showNewLeagueForm();">View Existing Leagues</button></a>
+				ng-click="vm.showNewLeagueForm();">View Existing Leagues</button></a><br>
 
 
 				
@@ -23,7 +25,7 @@
 
 
 	<div id="newLeagueFormDiv" ng-show="vm.newLeague">
-		<h2>Create Your New League!</h2>
+		<h2><strong>Create Your New League!</strong></h2>
 		<form>
 			<input placeholder="League Name:" ng-model="vm.league.name"><br>
 			<input placeholder="League Cost:" ng-model="vm.league.cost"><br>
@@ -46,5 +48,5 @@
 		<p class="display-3 text-center lead">Loading</p>
 		<img class="img-fluid mx-auto d-block" src="./img/footballLoader.gif">
 	</div>
-
+</div>
 </div>
