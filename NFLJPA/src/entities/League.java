@@ -28,7 +28,6 @@ public class League {
 	
 	private double cost;
 	
-	@JsonIgnore
 	@ManyToMany(mappedBy="leagues", fetch=FetchType.EAGER)
 	private List<User> users;
 
