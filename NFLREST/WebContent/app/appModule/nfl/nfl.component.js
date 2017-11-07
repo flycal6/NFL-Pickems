@@ -5,10 +5,26 @@ angular.module('appModule').component('nfl', {
 		vm.newLeague = null;
 		vm.league = null;
 		vm.loading = 0;
+		
+		var getUser = function(){
+			user = authService.getToken();
+		}
+		
+		getUser();
+		
+		
+		var checkLogin = function(){
+			if(authService.getToken().id == null){
+				$location.path('/login')
+				getUser();
+			}
+		};
 
 		vm.showNewLeagueForm = function() {
 			vm.newLeague = 1;
+			 checkLogin();
 		}
+		
 		vm.cancelNewLeagueForm = function() {
 			vm.newLeague = null;
 		}
