@@ -1,8 +1,8 @@
 <div class="container">
-	<!-- Show all leagues -->
 	
-	{{"Leagues page"}}
-	<h2 class="display-4"> Welcome Back {{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}}</h2>
+	<h4>{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} <span ng-show="vm.selected" class="float-right">{{vm.selected.name | uppercase}}</span> </h4>
+	
+	<!-- ****************************** show all league *************************** -->
 	<div ng-hide="vm.selected">
 		<ul ng-repeat="league in vm.leagues">
 			<!-- <h1 class="display-2">{{league.users[0].fName}}</h1> -->
@@ -27,16 +27,18 @@
 			<button class="btn btn-success" ng-click="vm.joinLeague(league.id)">Join {{league.name}}</button>
 		</ul>
 	</div>
-	<!-- show a single league -->
+	
+	
+	<!-- ****************************** show a single league *************************** -->
 	<div ng-show="vm.selected">
-		{{vm.selected.name}}
-		<button class="btn btn-danger" ng-click="vm.selected = null">Go back</button>
+		<button id="cancelButton" class="btn btn-secondary float-right" ng-click="vm.selected = null">Cancel</button>
+		<!-- <h3 class="lead">{{vm.selected.name | uppercase}}</h3> -->
+		<weeks></weeks>
 
-	<weeks></weeks>
 	</div>
 	
 
-	<!-- **************** only show while waiting for server response *************************** -->
+	<!-- ****************************** only show while waiting for server response *************************** -->
 	<div id="loading" ng-show="vm.loading > 0">
 		<p class="display-3 text-center lead">Loading</p>
 		<img class="img-fluid mx-auto d-block" src="./img/footballLoader.gif">

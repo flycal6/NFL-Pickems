@@ -1,29 +1,31 @@
 <div class="container-fluid">
-	<table id="gameTable">
-		<thead>
-			<tr id="head">
+	<table class="table table-responsive mx-auto">
+		<thead class="mx-auto" id="head">
+			<tr>
 				<th>HOME</th>
-				<th>Line</th>
+				<!-- <th>Line</th> -->
 				<th>AWAY</th>
-				<th>O/U</th>
+				<!-- <th>O/U</th> -->
 			</tr>
 		</thead>
 		<tr ng-repeat="game in vm.games">
 
-			<td id="gameHomeTeam" ng-click="vm.selectGame(game, 'home')"><button
-					ng-class="(vm.selectedArr.indexOf(game.home) >= 0) ? 'btn btn-success' : 'btn-primary'">{{game.home.city}}
-					{{game.home.name}}</button></td>
-			<td id="gameLine">OFF</td>
-			<td id="gameAwayTeam" ng-click="vm.selectGame(game, 'away')"><button
-					ng-class="(vm.selectedArr.indexOf(game.away) >= 0) ? 'btn btn-success' : 'btn-primary'">{{game.away.city}}
-					{{game.away.name}}</button></td>
-			<td id="gameTotal">----</td>
+			<td id="gameHomeTeam" ng-click="vm.selectGame(game, 'home')">
+				<button class="btn btn-block" ng-class="(vm.selectedArr.indexOf(game.home) >= 0) ? 'btn btn-success' : 'btn-info'">
+					{{game.home.city}} {{game.home.name}}
+				</button>
+			</td>
+			<td id="gameAwayTeam" ng-click="vm.selectGame(game, 'away')">
+				<button class="btn btn-block" ng-class="(vm.selectedArr.indexOf(game.away) >= 0) ? 'btn btn-success' : 'btn-info'">
+					{{game.away.city}} {{game.away.name}}
+				</button>
+			</td>
 
 		</tr>
 	</table>
+	
 	<div id="SubmitPicks">
-		<button class="btn btn-danger" ng-click="vm.convertPicksToJson()">Save
-			Picks</button>
+		<button class="btn btn-block btn-success mx-auto" ng-click="vm.convertPicksToJson()">Save Picks</button>
 	</div>
 
 	<!-- **************** only show while waiting for server response *************************** -->

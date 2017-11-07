@@ -1,45 +1,51 @@
-#gameTable{
+/* #gameTable{
     width: 800px;
     text-align:center;
     margin: 0 auto;
-}
+} */
 #head th{
 text-align:center;    
 }
 #gameLine{
     color:darkgrey;
 }
-#weekSelectDiv{
+/* #weekSelectDiv{
     text-align: right;
     margin: 20px 50px 20px 0px;
-}
+} */
 button:hover{
     cursor:pointer;
 }
-#gameHomeTeam button{
+/* #gameHomeTeam button{
     width: 200px;
 }
 #gameAwayTeam button{
     width: 200px;
-}
+} */
 
 #SubmitPicks button {
-	margin: 0 auto;
-	width: 36%;
-	text-align: center;
+	margin-bottom: 1em;
+	width: 98%;
+	/* text-align: center;
 	margin-left: 30%; 
-	margin-top: 20px;
+	margin-top: 20px; */
 }
 
-#SubmitPicks button:hover {
-    background-color: #bc0d0d;
+#cancelButton{
+	min-width: 4em;	
+	margin-bottom: 1em;
+	margin-right: 2em;
 }
-#innerContainer{
+
+/* #SubmitPicks button:hover {
+    background-color: #bc0d0d;
+} */
+/* #innerContainer{
 	width: 60%;
 	margin: auto;
 	padding: 2%;
 	background-color: rgba(170,170,170, .9); 
-}
+} */
 #registerLink{
 	font-size: 22px;
 	text-align:center;
@@ -47,4 +53,10 @@ button:hover{
 }
 #registerLink:hover{
 	text-decoration: none;
+}
+
+@media (max-width: 576px) {
+	#gameHomeTeam, #gameAwayTeam {
+		padding: .35rem;
+	}
 }
