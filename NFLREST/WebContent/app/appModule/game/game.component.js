@@ -8,6 +8,33 @@ angular.module('appModule').component('games', {
         var usersId = null;
         var picks = {}; // THIS IS A HASHMAP
         vm.loading = 0;
+        var previousUserPicks = [];
+        
+        //INDEX           
+        var reload = function(wid){
+        	vm.loading = 1;
+        	gameService.indexGame(wid)
+        	.then(function(res){
+//                console.log(res)
+//                console.log(res.data)
+        		vm.games = res.data;
+        		vm.loading = 0;
+        	})      
+        	.catch(function(err){
+        		console.log(err)
+        	})
+        	
+        	pickService.getUserPicks().then(function(res){
+        		console.log('pick response')
+        		console.log(res.data)
+//	    			console.log('games')
+        		previousUserPicks = res.data;
+        		console.log(previousUserPicks)
+        		
+        		gamePickStatus();
+        	});
+        	
+        }    
         
         vm.selectGame = function(game, team) {
             if (vm.selectedArr.indexOf(game[team]) < 0){
@@ -55,26 +82,25 @@ angular.module('appModule').component('games', {
         			console.log(res.data);
         		});
         }
-        
-    //INDEX           
-        var reload = function(wid){
-        	vm.loading = 1;
-            gameService.indexGame(wid)
-            .then(function(res){
-//                console.log(res)
-//                console.log(res.data)
-                vm.games = res.data;
-                vm.loading = 0;
-            })      
-            .catch(function(err){
-                console.log(err)
-            })
-            
-            pickService.getUserPicks().then(function(res){
-	    			console.log('pick response')
-	    			console.log(res)
-    			});
-        }    
+    	
+    	var gamePickStatus = function(){
+    		console.log('calling gamePickStatus()')
+    		console.log(previousUserPicks)
+    		previousUserPicks.forEach(function(pick, idx){
+    			vm.games.forEach(function(game, idx){
+    				if(pick.game.id == game.id){
+    					if(pick.team.id == game.home.id){
+    						console.log('home pick');
+    						console.log(pick.team.name);
+    					}
+    					else if(pick.team.id == game.away.id){    						
+    						console.log('away pick');
+    						console.log(pick.team.name);
+    					}
+    				}
+    			})
+    		})
+    	};
         reload();
     },
     controllerAs: 'vm'
