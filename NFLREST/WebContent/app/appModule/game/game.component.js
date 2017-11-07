@@ -25,11 +25,11 @@ angular.module('appModule').component('games', {
         	})
         	
         	pickService.getUserPicks().then(function(res){
-        		console.log('pick response')
-        		console.log(res.data)
+//        		console.log('pick response')
+//        		console.log(res.data)
 //	    			console.log('games')
         		vm.previousUserPicks = res.data;
-        		console.log(vm.previousUserPicks)
+//        		console.log(vm.previousUserPicks)
         		
         		gamePickStatus();
         	});
@@ -44,9 +44,9 @@ angular.module('appModule').component('games', {
 				}
             		vm.selectedArr.push(game[team]);
             }
-            console.log("team clicked")
+//            console.log("team clicked")
             // use to compare against pick
-            console.log(game[team])
+//            console.log(game[team])
             
             var pickJson = {};
             pickJson.teamId = game[team].id;
@@ -67,7 +67,7 @@ angular.module('appModule').component('games', {
    
         vm.convertPicksToJson = function() {
         		var pickJsonArr = [];
-        		console.log(picks)
+//        		console.log(picks)
         		for (var key in picks) {
 //        			var stringifyPick = JSON.stringify(picks[key])
         			pickJsonArr.push(picks[key])
@@ -75,30 +75,30 @@ angular.module('appModule').component('games', {
         		var card = {};
         		card.picks = pickJsonArr;
         		
-        		console.log('pickJsonArr')
-        		console.log(pickJsonArr)
+//        		console.log('pickJsonArr')
+//        		console.log(pickJsonArr)
         		gameService.createPicks(JSON.stringify(card)).then(function(res){
-        			console.log('created');
-        			console.log(res.data);
+//        			console.log('created');
+//        			console.log(res.data);
         		});
         }
     	
     	var gamePickStatus = function(){
-    		console.log('calling gamePickStatus()')
-    		console.log(vm.previousUserPicks)
-    		console.log('games')
-    		console.log(vm.games)
+//    		console.log('calling gamePickStatus()')
+//    		console.log(vm.previousUserPicks)
+//    		console.log('games')
+//    		console.log(vm.games)
     		vm.previousUserPicks.forEach(function(pick, idx){
     			vm.games.forEach(function(game, idx){
     				if(pick.game.id == game.id){
     					if(pick.team.id == game.home.id){
-    						console.log('home pick');
-    						console.log(pick.team.name);
+//    						console.log('home pick');
+//    						console.log(pick.team.name);
     						vm.selectGame(game, 'home');
     					}
     					else if(pick.team.id == game.away.id){    						
-    						console.log('away pick');
-    						console.log(pick.team.name);
+//    						console.log('away pick');
+//    						console.log(pick.team.name);
     						vm.selectGame(game, 'away');
     					}
     				}
