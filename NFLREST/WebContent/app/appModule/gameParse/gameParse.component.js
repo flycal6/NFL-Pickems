@@ -42,7 +42,7 @@ angular.module('appModule').component('gameParse', {
 			vm.loading = 1;
 			for(game in vm.games){
 				var gameObj = {};
-				gameObj.gameId = 1; // default value for object mapping in Impl
+//				gameObj.gameId = 1; // default value for object mapping in Impl
 				gameObj.awayAbbr = vm.games[game].away.abbr;
 				gameObj.awayScore = vm.games[game].away.score.T;
 				gameObj.homeAbbr = vm.games[game].home.abbr;

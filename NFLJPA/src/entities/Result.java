@@ -1,13 +1,12 @@
 package entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
 
 @Entity
 public class Result {
@@ -16,15 +15,11 @@ public class Result {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@OneToOne
-	@JoinColumn(name = "id")
+	@OneToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name = "gameId")
 	private Game game;
 	
-	@Transient  // non-persisted value for ease of mapping via Object Mapper
-	private int gameId;
-	
 	private int homeScore;
-	
 	private int awayScore;
 	private String awayAbbr;
 	private String homeAbbr;
@@ -73,14 +68,6 @@ public class Result {
 
 	public int getId() {
 		return id;
-	}
-
-	public int getGameId() {
-		return gameId;
-	}
-
-	public void setGameId(int gameId) {
-		this.gameId = gameId;
 	}
 
 	public Result(int id, Game game, int homeScore, int awayScore) {
