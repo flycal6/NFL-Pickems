@@ -1,8 +1,8 @@
 <!-- /********************* registration form ************************************** -->
-<div class="container">
+<div class="container-fluid">
+<div id="bgdiv">
 <div class="innerContainer">
 	<form class="form-signin">
-	<br>
 	    <h2 class="form-signin-heading">Please Register</h2>
 	    <label for="fname" class="sr-only">First Name</label>
 	    <input type="text" id="fname" class="form-control" placeholder="First name" ng-model="user.fName" required>
@@ -14,5 +14,6 @@
 	    <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="user.password" required>
 		<button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="vm.register(user)">Register</button>
 	</form>
+	</div>
 	</div>
 </div>

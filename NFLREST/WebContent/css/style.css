@@ -37,6 +37,9 @@ body{
     opacity : 0.6;
     z-index: -1;
 }
+div.container-fluid{
+	padding: 0px;
+}
 #gameLine {
 	color: darkgrey;
 }
@@ -47,9 +50,6 @@ button:hover {
 #SubmitPicks button {
 	margin-bottom: 1em;
 	width: 98%;
-	/* text-align: center;
-	margin-left: 30%; 
-	margin-top: 20px; */
 }
 
 #cancelButton {
@@ -60,25 +60,17 @@ button:hover {
 
 #leagueIndexTable:hover{
     cursor:pointer;
-    /* background-color: rgba(54, 58, 64, 0.03); */
     box-shadow: 0 0 10px lightblue;
     
 }
-
-/* #SubmitPicks button:hover {
-    background-color: #bc0d0d;
-} */
 .innerContainer{
-
 	width: 85%;
 	margin: auto;
-	margin-top: 15px;
 	padding: 2%;
 	background-color: rgba(247, 247, 247, .95);
 	text-align:center;
 }
 .innerContainer2{
-
 	width: 85%;
 	margin: auto;
 	margin-top: 15px;
