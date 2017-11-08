@@ -4,14 +4,14 @@
       <div class="row">
         <div class="col-sm-8 py-4">
           <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+          <p class="text-muted">JDBC is an app that gives you the power to make bets on NFL games with your group of friends. What began with an observation - that sports fans have no easy way to bet with friends interactively on sporting events - evolved into a whole new sports experience. Our elite team set out to build the world’s best social NFL betting service.</p>
         </div>
         <div class="col-sm-4 py-4">
-          <h4 class="text-white">Contact</h4>
+         <!--  <h4 class="text-white">Contact</h4> -->
           <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
+            <!-- <li><a href="#" class="text-white">Follow on Twitter</a></li>
+            <li><a href="#" class="text-white">Like on Facebook</a></li> -->
+            <li><a href="https://github.com/jmeaster1/FinalProject" class="text-white">View Source Code</a></li>
           </ul>
         </div>
       </div>
@@ -20,10 +20,10 @@
   <div class="navbar navbar-dark bg-dark">
     <div class="container d-flex justify-content-between">
       <a id="brandLogo" class="navbar-brand" href="#/">JDBC</a>
-      <a class="btn btn-outline-primary btn-sm" href="#/game-parse">Week Updates</a>
-      <a class="btn btn-outline-primary btn-sm" href="#/leagues">Leagues</a>
-      <button class="btn btn-outline-primary btn-sm" ng-click="vm.login()" ng-hide="vm.checkLogIn()">Login</button>
-      <button class="btn btn-outline-primary btn-sm" ng-click="vm.register()" ng-hide="vm.checkLogIn()">Register</button>
+      <a class="btn btn-outline-primary btn-sm, navButtons" href="#/game-parse">Week Updates</a>
+      <a class="btn btn-outline-primary btn-sm, navButtons" href="#/leagues">Leagues</a>
+      <button class="btn btn-outline-primary btn-sm, navButtons" ng-click="vm.login()" ng-hide="vm.checkLogIn()">Login</button>
+      <button class="btn btn-outline-primary btn-sm, navButtons" ng-click="vm.register()" ng-hide="vm.checkLogIn()">Register</button>
       <logout ng-show="vm.checkLogIn()"></logout>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon btn-sm"></span>

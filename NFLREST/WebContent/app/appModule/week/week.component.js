@@ -10,9 +10,10 @@ angular.module('appModule').component('weeks', {
 		vm.mapWeeks = function(val){
 			console.log('MapWeeks called: ')
 			console.log(val)
-			$rootScope.$broadcast('WeekBC', {
-				weekNum : val
-			})
+			$rootScope.$broadcast('weekToDisplay', {
+				gameWeek : val.gameWeek,
+				weekId: val.id
+			});
 		}
 		
 		

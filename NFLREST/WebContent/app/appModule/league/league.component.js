@@ -55,6 +55,7 @@ angular.module('appModule').component('leagues', {
 				vm.loading = 0;
 				console.log(res.data);
 				$location.path("/leagues");
+				window.alert('You have been successfully added to the league!')
 			});
 		}
 

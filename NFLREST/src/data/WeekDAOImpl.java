@@ -1,6 +1,7 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import entities.Game;
+import entities.Pick;
 import entities.Result;
 import entities.Team;
 import entities.Week;
@@ -121,7 +123,8 @@ public class WeekDAOImpl implements WeekDAO {
 					}
 				}
 			}
-//			determineIfPickCorrect(results,)
+			
+			determineIfPickCorrect();
 			return results;
 		}
 		catch (Exception e){
@@ -129,6 +132,37 @@ public class WeekDAOImpl implements WeekDAO {
 		}
 		
 		return null;
+	}
+
+	private void determineIfPickCorrect() {
+		String rq = "SELECT r FROM Result r";
+		List<Result> results = em.createQuery(rq, Result.class).getResultList();
+		
+		String pq = "SELECT p FROM Pick p";
+		List<Pick> picks = em.createQuery(pq, Pick.class).getResultList();
+		int winningTeamId = 0;
+		for (Pick pick : picks) {
+			for (Result result : results) {
+				if(pick.getGame().getId() == result.getGame().getId()) {
+					if(result.getAwayScore() - result.getHomeScore() > 0) {
+						winningTeamId = result.getGame().getAway().getId();
+					}
+					else if(result.getHomeScore() - result.getAwayScore() > 0) {
+						winningTeamId = result.getGame().getHome().getId();
+					}
+					else {
+						winningTeamId = -1;
+					}
+					if(pick.getTeam().getId() == winningTeamId) {
+						pick.setCorrect(true);
+					}
+					else {
+						pick.setCorrect(false);
+					}
+				}
+			}
+		}
+		
 	}
 	
 	

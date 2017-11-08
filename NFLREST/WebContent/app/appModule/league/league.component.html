@@ -1,9 +1,8 @@
 <div class="container">
-	<div class="innerContainer">
+	<div class="innerContainer2">
 
 		<h4>
-			{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} <span
-				ng-show="vm.selected" class="float-right">{{vm.selected.name
+			{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} <span ng-show="vm.selected" class="float-right">{{vm.selected.name
 				| uppercase}}</span>
 		</h4>
 
@@ -15,7 +14,7 @@
 					ng-hide="vm.selected">
 					<thead id="leagueIndexTable" ng-click="vm.setSelected(league.id)">
 						<tr>
-							<td>#{{league.id}} {{league.name | uppercase}} <span
+							<td><span id="leagueNameHeading"><!-- #{{league.id}} --> {{league.name | uppercase}} </span><span
 								class="text-muted">${{league.cost}} Entry</span></td>
 						</tr>
 
