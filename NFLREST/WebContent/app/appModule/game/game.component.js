@@ -10,29 +10,36 @@ angular.module('appModule').component('games', {
         vm.loading = 0;
         vm.previousUserPicks = [];
         
-        //INDEX           
+        //INDEX   
+    	
+        var wid = 1;
         var reload = function(wid){
-        	vm.loading = 1;
-        	gameService.indexGame(wid)
-        	.then(function(res){
-//                console.log(res)
-//                console.log(res.data)
-        		vm.games = res.data;
-        		vm.loading = 0;
-        	})      
-        	.catch(function(err){
-        		console.log(err)
-        	})
+        		if(!wid){
+        			wid = 1;
+        		}
+	        	vm.loading = 1;
+	    		console.log('wid just during reload call')
+	    		console.log(wid)
+	        	gameService.indexGame(wid)
+	        	.then(function(res){
+	//                console.log(res)
+	//                console.log(res.data)
+	        		vm.games = res.data;
+	        		vm.loading = 0;
+	        	})      
+	        	.catch(function(err){
+	        		console.log(err)
+	        	})
         	
-        	pickService.getUserPicks().then(function(res){
-//        		console.log('pick response')
-//        		console.log(res.data)
-//	    			console.log('games')
-        		vm.previousUserPicks = res.data;
-//        		console.log(vm.previousUserPicks)
-        		
-        		gamePickStatus();
-        	});
+	        	pickService.getUserPicks().then(function(res){
+	//        		console.log('pick response')
+	//        		console.log(res.data)
+	//	    			console.log('games')
+	        		vm.previousUserPicks = res.data;
+	//        		console.log(vm.previousUserPicks)
+	        		
+	        		gamePickStatus();
+	        	});
         	
         }    
         
@@ -55,14 +62,17 @@ angular.module('appModule').component('games', {
             picks[pickJson.gameId] = pickJson;
             
         }
-        
-    	
-//    	var wid = 1;
-    	$scope.$on('WeekBC', function(event, args){
-//    		console.log(args.weekNum.gameWeek);
-    		wid = args.weekNum.gameWeek
+
+    	$scope.$on('weekToDisplay', function(event, args){
+    		console.log('Broadcast Args');
+//    		console.log(args);
+//    		console.log(args.gameWeek);
+//    		console.log(args.weekId);
+    		wid = args.weekId
+//    		console.log('wid')
+//    		console.log(wid)
     		reload(wid);
-    		})
+	})
     	
    
         vm.convertPicksToJson = function() {
