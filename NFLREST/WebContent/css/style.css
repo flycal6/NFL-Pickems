@@ -14,16 +14,28 @@ td{
 	padding: 3px;
 }
 body{
-	background-color:#157EFB;
-	/* background-image: url('https://fthmb.tqn.com/OY0GrqIaxUwokki5-ebX6P1Mpnc=/768x0/filters:no_upscale()/GettyImages-157435789-58402aec3df78c0230d2d44f.jpg');
-	background-size: cover;
-	background-repeat: no-repeat; */
+	background-color: black;
 }
-#bgdiv{
-	background-image: url('https://fthmb.tqn.com/OY0GrqIaxUwokki5-ebX6P1Mpnc=/768x0/filters:no_upscale()/GettyImages-157435789-58402aec3df78c0230d2d44f.jpg');
-	background-size: cover;
+#leagueNameHeading{
+	font-weight: bold;
+	font-size: 26px;
+}
+#bgdiv {
+   position: relative;
+}
+#bgdiv:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('https://fthmb.tqn.com/OY0GrqIaxUwokki5-ebX6P1Mpnc=/768x0/filters:no_upscale()/GettyImages-157435789-58402aec3df78c0230d2d44f.jpg'); 
+    background-size: cover;
 	background-repeat: no-repeat;
-	height: 700px;
+	width: 100%;
+    height: 100vh;
+    opacity : 0.6;
+    z-index: -1;
 }
 #gameLine {
 	color: darkgrey;
@@ -62,7 +74,16 @@ button:hover {
 	margin: auto;
 	margin-top: 15px;
 	padding: 2%;
-	background-color: rgba(170, 170, 170, .8);
+	background-color: rgba(247, 247, 247, .95);
+	text-align:center;
+}
+.innerContainer2{
+
+	width: 85%;
+	margin: auto;
+	margin-top: 15px;
+	padding: 2%;
+	background-color: rgba(247, 247, 247, .95);
 	text-align:center;
 }
 #joinButton{
@@ -95,7 +116,7 @@ button:hover {
 	margin: auto;
 	margin-top: 15px;
 	padding: 2%;
-	background-color: rgba(170, 170, 170, .8);
+	background-color: rgba(247, 247, 247, .95);
 }
 
 #newLeagueFormDiv button {
