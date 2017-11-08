@@ -27,7 +27,6 @@ body{
 button:hover {
 	cursor: pointer;
 }
-
 #SubmitPicks button {
 	margin-bottom: 1em;
 	width: 98%;
@@ -54,7 +53,7 @@ button:hover {
 } */
 .innerContainer{
 
-	width: 80%;
+	width: 85%;
 	margin: auto;
 	margin-top: 15px;
 	padding: 2%;
@@ -64,7 +63,6 @@ button:hover {
 #joinButton{
 	width: 90%;
 }
-
 .innerContainer button {
 	margin: auto;
 	width: 35%;
@@ -72,7 +70,20 @@ button:hover {
 .newInputs{
 	width: 90%;
 }
-
+.game{
+	margin-top: 30px;
+}
+#createWeekButton{
+	width: 90%;
+	margin-top: 20px;
+}
+#updateButton{
+	width: 150px;
+	margin-left: 5px;
+}
+#weekForm{
+	margin-right: 40px;
+}
 #newLeagueFormDiv {
 	text-align: center;
 	width: 60%;
@@ -92,6 +103,12 @@ button:hover {
 }
 #gameAwayTeam button{
 	width: 100%;
+}
+#gameHomeTeam button:hover{
+	background-color: #25A2B7;
+}
+#gameAwayTeam button:hover{
+	background-color: #25A2B7;
 }
 
 #registerLink {

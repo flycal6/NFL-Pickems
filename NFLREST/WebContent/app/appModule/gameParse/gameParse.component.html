@@ -1,16 +1,20 @@
 <div class="container">
-	<h1>Game Parser Component</h1>
+<div class="innerContainer">
+	<h1>Game Parser Component</h1><br>
 	
 	<!-- <ul ng-repeat="g in vm.games">
 		<li>{{g.home.abbr}}: {{g.home.score.T}}</li>
 		<li>{{g.away.abbr}}: {{g.away.score.T}}</li>
 	</ul> -->
-	<button class="btn btn-primary" ng-click="vm.createWeek()">Create Week</button>
 	
-	<form class="form form-inline float-right">
+	
+	<form id="weekForm" class="form form-inline float-right">
 		<input class="form-control" type="number"  placeholder="week number">
-		<button class="btn btn-primary" ng-click="vm.updateWeek()">Update Week</button>
+		<button id="updateButton" class="btn btn-primary" ng-click="vm.updateWeek()">Update</button>
 	</form>
+	
+	<button id="createWeekButton" class="btn btn-primary" ng-click="vm.createWeek()">Create Week</button>
+	
 	
 	
 	<div class="game"  ng-repeat="g in vm.games" ng-class="todo.completed? 'text-secondary strike' : ''">
@@ -31,6 +35,7 @@
 	    </div>
 	  </div>
 	  <hr />
+	  </div>
 	</div>
 	
 	
