@@ -27,8 +27,8 @@
 	<div id="newLeagueFormDiv" ng-show="vm.newLeague">
 		<h2><strong>Create Your New League!</strong></h2><br>
 		<form>
-			<input class="newInputs" placeholder="League Name:" ng-model="vm.league.name"><br>
-			<input class="newInputs" placeholder="League Cost:" ng-model="vm.league.cost"><br><br>
+			<input class="newInputs" type="text" placeholder="League Name:" ng-model="vm.league.name"><br>
+			<input class="newInputs" type="number" placeholder="League Cost:" ng-model="vm.league.cost"><br><br>
 			
 			<input type="radio" name="public" ng-model='vm.league.isPublic' value="true" checked="checked"> Public 
 			<input type="radio" name="private" ng-model='vm.league.isPublic' value="false"> Private<br><br><br>

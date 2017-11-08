@@ -128,7 +128,12 @@ button:hover {
 #gameAwayTeam button:hover{
 	background-color: #25A2B7;
 }
-
+.form-signin button{
+	margin-top: 10px;
+}
+#regButton{
+	margin-top: 10px;
+}
 #registerLink {
 	font-size: 22px;
 	text-align: center;
