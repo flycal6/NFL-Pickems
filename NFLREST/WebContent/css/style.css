@@ -87,6 +87,12 @@ button:hover {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
+#gameHomeTeam button{
+	width: 100%;
+}
+#gameAwayTeam button{
+	width: 100%;
+}
 
 #registerLink {
 	font-size: 22px;
