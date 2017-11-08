@@ -104,6 +104,12 @@ button:hover {
 #gameAwayTeam button{
 	width: 100%;
 }
+#gameHomeTeam button:hover{
+	background-color: #25A2B7;
+}
+#gameAwayTeam button:hover{
+	background-color: #25A2B7;
+}
 
 #registerLink {
 	font-size: 22px;
