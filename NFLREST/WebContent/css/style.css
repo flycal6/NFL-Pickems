@@ -1,8 +1,15 @@
 #head th {
 	text-align: center;
 }
+td{
+	text-align:left;
+}
+#brandLogo{
+	font-family: 'Montserrat Subrayada', sans-serif;
+	font-size: 50px;
+}
 body{
-	background-color: darkgrey;
+	background-color:#157EFB;
 	/* background-image: url('https://fthmb.tqn.com/OY0GrqIaxUwokki5-ebX6P1Mpnc=/768x0/filters:no_upscale()/GettyImages-157435789-58402aec3df78c0230d2d44f.jpg');
 	background-size: cover;
 	background-repeat: no-repeat; */
@@ -45,19 +52,25 @@ button:hover {
 /* #SubmitPicks button:hover {
     background-color: #bc0d0d;
 } */
-#innerContainer{
+.innerContainer{
 
-	width: 60%;
+	width: 80%;
 	margin: auto;
 	margin-top: 15px;
 	padding: 2%;
 	background-color: rgba(170, 170, 170, .8);
 	text-align:center;
 }
+#joinButton{
+	width: 90%;
+}
 
-#innerContainer button {
+.innerContainer button {
 	margin: auto;
-	width: 220px;
+	width: 35%;
+}
+.newInputs{
+	width: 90%;
 }
 
 #newLeagueFormDiv {
@@ -70,9 +83,15 @@ button:hover {
 }
 
 #newLeagueFormDiv button {
-	width: 170px;
+	width: 90%;
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+#gameHomeTeam button{
+	width: 100%;
+}
+#gameAwayTeam button{
+	width: 100%;
 }
 
 #registerLink {

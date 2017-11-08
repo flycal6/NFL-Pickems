@@ -2,7 +2,7 @@
 <div class="container_fluid">
 <div id="bgdiv">
 <br><br><br>
-	<div id='innerContainer' ng-hide="vm.newLeague">
+	<div class='innerContainer' ng-hide="vm.newLeague">
 		<h1 class="display"><strong>JDBC NFL Pick 'Em</strong></h1>
 
 		<button class="btn btn-primary" ng-click="vm.showNewLeagueForm()">Create
@@ -25,14 +25,14 @@
 
 
 	<div id="newLeagueFormDiv" ng-show="vm.newLeague">
-		<h2><strong>Create Your New League!</strong></h2>
+		<h2><strong>Create Your New League!</strong></h2><br>
 		<form>
-			<input placeholder="League Name:" ng-model="vm.league.name"><br>
-			<input placeholder="League Cost:" ng-model="vm.league.cost"><br>
+			<input class="newInputs" placeholder="League Name:" ng-model="vm.league.name"><br>
+			<input class="newInputs" placeholder="League Cost:" ng-model="vm.league.cost"><br><br>
 			<input type="radio" name="restrictions" ng-model='vm.league.isPublic'
 				value="true" checked> Public <input type="radio"
 				name="restrictions" ng-model='vm.league.isPublic' value="false">
-			Private<br> <br>
+			Private<br> <br><br>
 
 
 			<button type="btn" class="btn btn-success"

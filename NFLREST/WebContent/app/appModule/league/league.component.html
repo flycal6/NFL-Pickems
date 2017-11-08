@@ -1,61 +1,72 @@
 <div class="container">
-	
-	<h4>{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} <span ng-show="vm.selected" class="float-right">{{vm.selected.name | uppercase}}</span> </h4>
-	
-	<!-- ****************************** show all league *************************** -->
-	<div ng-hide="vm.selected">
-		<div ng-repeat="league in vm.leagues">
-			<!-- <h1 class="display-2">{{league.users[0].fName}}</h1> -->
-			<table class="table table-striped table-hover table-responsive" ng-hide="vm.selected">
-		        <thead id="leagueIndexTable" ng-click="vm.setSelected(league.id)">
-		        		<tr><td>#{{league.id}} {{league.name | uppercase}} <span class="text-muted">${{league.cost}} Entry</span></td></tr>
-		        		
-		            <tr>
-		                <th>Player</th>
-		                <th>1</th>
-		                <th>2</th>
-		                <th>3</th>
-		                <th>4</th>
-		                <th>5</th>
-		            </tr>
-		        </thead>
-		        <tbody>
-		            <tr ng-repeat="user in league.users" >
-		                <td>{{user.fName}} {{user.lName}}</td>
-		                <!-- Use these to show weekly totals for each player -->
-		                <td>{{user.week}}</td>
-		                <td>{{user.week}}</td>
-		                <td>{{user.week}}</td>
-		                <td>{{user.week}}</td>
-		                <td>{{user.week}}</td>
-		            </tr>
-		        </tbody>
-		    </table>
-			<!-- <li ng-click="vm.setSelected(league.id)">League id:
+	<div class="innerContainer">
+
+		<h4>
+			{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} <span
+				ng-show="vm.selected" class="float-right">{{vm.selected.name
+				| uppercase}}</span>
+		</h4>
+
+		<!-- ****************************** show all league *************************** -->
+		<div ng-hide="vm.selected">
+			<div ng-repeat="league in vm.leagues">
+				<!-- <h1 class="display-2">{{league.users[0].fName}}</h1> -->
+				<table class="table table-striped table-hover table-responsive"
+					ng-hide="vm.selected">
+					<thead id="leagueIndexTable" ng-click="vm.setSelected(league.id)">
+						<tr>
+							<td>#{{league.id}} {{league.name | uppercase}} <span
+								class="text-muted">${{league.cost}} Entry</span></td>
+						</tr>
+
+						<tr>
+							<th>Player</th>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+							<th>4</th>
+							<th>5</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="user in league.users">
+							<td>{{user.fName}} {{user.lName}}</td>
+							<!-- Use these to show weekly totals for each player -->
+							<td>{{user.week}}</td>
+							<td>{{user.week}}</td>
+							<td>{{user.week}}</td>
+							<td>{{user.week}}</td>
+							<td>{{user.week}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- <li ng-click="vm.setSelected(league.id)">League id:
 				{{league.id}}</li>
 			<li ng-click="vm.setSelected(league.id)">League name:
 				{{league.name}}</li>
 			<li ng-click="vm.setSelected(league.id)">League cost:
 				{{league.cost}}</li> -->
-			<button class="btn btn-success" ng-click="vm.joinLeague(league.id)">Join {{league.name}}</button>
-			<hr />
+				<button id="joinButton" class="btn btn-success" ng-click="vm.joinLeague(league.id)">Join
+					{{league.name}}</button>
+				<hr />
+			</div>
+		</div>
+
+
+		<!-- ****************************** show a single league *************************** -->
+		<div ng-show="vm.selected">
+			<button id="cancelButton" class="btn btn-secondary float-right"
+				ng-click="vm.selected = null">Cancel</button>
+			<!-- <h3 class="lead">{{vm.selected.name | uppercase}}</h3> -->
+			<weeks></weeks>
+
+		</div>
+
+
+		<!-- ****************************** only show while waiting for server response *************************** -->
+		<div id="loading" ng-show="vm.loading > 0">
+			<p class="display-3 text-center lead">Loading</p>
+			<img class="img-fluid mx-auto d-block" src="./img/footballLoader.gif">
 		</div>
 	</div>
-	
-	
-	<!-- ****************************** show a single league *************************** -->
-	<div ng-show="vm.selected">
-		<button id="cancelButton" class="btn btn-secondary float-right" ng-click="vm.selected = null">Cancel</button>
-		<!-- <h3 class="lead">{{vm.selected.name | uppercase}}</h3> -->
-		<weeks></weeks>
-
-	</div>
-	
-
-	<!-- ****************************** only show while waiting for server response *************************** -->
-	<div id="loading" ng-show="vm.loading > 0">
-		<p class="display-3 text-center lead">Loading</p>
-		<img class="img-fluid mx-auto d-block" src="./img/footballLoader.gif">
-	</div>
-
 </div>
