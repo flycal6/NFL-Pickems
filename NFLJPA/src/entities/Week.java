@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,6 +28,10 @@ public class Week {
 	@OneToMany(mappedBy = "week")//(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Game> games;
 
+	@JsonIgnore
+	@ManyToMany(mappedBy="weeks")
+	private List<League> leagues;
+	
     public List<Game> getGames() {
 		return games;
 	}
@@ -58,6 +63,14 @@ public class Week {
     public void setDate(Date date) {
         this.date = date;
     }
+
+	public List<League> getLeagues() {
+		return leagues;
+	}
+
+	public void setLeagues(List<League> leagues) {
+		this.leagues = leagues;
+	}
 
 	public Week(int id, Date date) {
 		super();

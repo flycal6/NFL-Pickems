@@ -1,7 +1,6 @@
 package data;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -140,7 +139,9 @@ public class WeekDAOImpl implements WeekDAO {
 		
 		String pq = "SELECT p FROM Pick p";
 		List<Pick> picks = em.createQuery(pq, Pick.class).getResultList();
+		
 		int winningTeamId = 0;
+		
 		for (Pick pick : picks) {
 			for (Result result : results) {
 				if(pick.getGame().getId() == result.getGame().getId()) {

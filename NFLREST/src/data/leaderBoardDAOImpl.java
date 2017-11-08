@@ -1,6 +1,8 @@
 package data;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,29 +29,50 @@ public class leaderBoardDAOImpl implements leaderBoardDAO {
 	}
 
 	@Override
-	public int calcWeek(List<Pick> picks, User uid, Week wid) {
-		int numCorrect = 0;
-		String query = "SELECT p FROM Pick WHERE p.isCorrect = 'true' AND p.user.id = :id AND p.week.id = :wid";
-		Pick pick = em.createQuery(query, Pick.class).setParameter("isCorrect", numCorrect).getResultList()
-				.get(0);
-		if (query.equals("true")) {
-			numCorrect++;
+    public Map<Integer, Map<Integer, Integer>> calcWeek() {
+		String qUser = "SELECT u FROM User u";
+		List<User> users = em.createQuery(qUser, User.class).getResultList();
+		
+		String qWeek = "SELECT w FROM Week w";
+		List<Week> weeks = em.createQuery(qWeek, Week.class).getResultList();
+		
+		String qPick = "SELECT p FROM Pick p WHERE p.correct = 'true' AND p.game.week.id = :wid AND p.user.id = :uid";
+
+		Map<Integer, Map<Integer, Integer>> userWeekPick = new HashMap<>();
+		
+		for (User user : users) {
+			Map<Integer, Integer> weekPick = new HashMap<>();
+			userWeekPick.put(user.getId(), weekPick);
+			
+			for (Week week : weeks) {
+				Integer picks = em.createQuery(qPick, Pick.class)
+				.setParameter("wid", week.getId())
+				.setParameter("uid", user.getId())
+				.getResultList().size();
+				
+				weekPick.put(week.getId(), picks);
+			}
 		}
-		return numCorrect;
-	}
+
+        System.out.println("correct picks: " + userWeekPick);
+//        if (query.equals("true")) {
+//            numCorrect++;
+//        }
+        return userWeekPick;
+    }
 
 	@Override
-	public int calcSeason(List<Pick> picks, User uid) {
-		int totalCorrect = 0;
-		String query = "SELECT p FROM Pick WHERE p.isCorrect = 'true' AND p.user.id = :id";	
-		Pick pick = em.createQuery(query, Pick.class).setParameter("isCorrect", totalCorrect).getResultList()
-				.get(0);
-		if (query.equals("true")) {
-			totalCorrect++;
-		}
-
-		return totalCorrect;
-	}
+    public Map<String, Object> calcSeason(int uid) {
+//        String query = "SELECT count(p) FROM Pick WHERE p.isCorrect = 'true' AND p.user.id = :id";    
+//        Integer picks = em.createQuery(query, Integer.class)
+//                            .setParameter("id", uid)
+//                            .executeUpdate();
+//        HashMap<String, Object> results = new HashMap<>(); 
+//        results.put("user", em.find(User.class, uid));
+//        results.put("numCorrect", picks);
+        
+        return null;
+    }
 
 	@Override
 	public List<User> indexWeekLeaders(int wid) {

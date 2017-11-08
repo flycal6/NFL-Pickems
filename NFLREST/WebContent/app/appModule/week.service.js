@@ -18,5 +18,12 @@ angular.module('appModule').factory('weekService', function($http, $filter, $loc
 		});
 	};
 	
+	service.calcWeek = function(){
+		return $http({
+			method: 'GET',
+			url: 'rest/leaderboard/league'
+		});
+	};
+	
 	return service;
 });

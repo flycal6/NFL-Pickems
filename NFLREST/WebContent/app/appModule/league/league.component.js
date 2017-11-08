@@ -18,6 +18,7 @@ angular.module('appModule').component('leagues', {
 				// console.log(res.data)
 				vm.leagues = res.data;
 				console.log(vm.leagues)
+				console.log(vm.leagues.users)
 				vm.userJoined
 			});
 		}

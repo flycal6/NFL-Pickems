@@ -2,12 +2,17 @@ package entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -22,6 +27,11 @@ public class League {
 	private String name;
 	
 	private double cost;
+	
+	@JsonIgnore
+	@ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinTable(name="league_week", joinColumns = @JoinColumn(name="leagueId"), inverseJoinColumns = @JoinColumn(name= "weekId"))
+	private List<Week> weeks;
 	
 	@ManyToMany(mappedBy="leagues", fetch=FetchType.EAGER)
 	private List<User> users;
@@ -62,6 +72,14 @@ public class League {
 
 	public int getId() {
 		return id;
+	}
+
+	public List<Week> getWeeks() {
+		return weeks;
+	}
+
+	public void setWeeks(List<Week> weeks) {
+		this.weeks = weeks;
 	}
 
 	public League(int id, Boolean isPublic, String name, double cost) {

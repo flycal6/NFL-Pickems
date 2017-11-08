@@ -1,6 +1,6 @@
 angular.module('appModule').component('stats', {
 	templateUrl: 'app/appModule/stats/stats.component.html',
-	controller: function(nflService){
+	controller: function(nflService, weekService){
 		
 		//  stats for the time being purely consist of % of picks right 
 		var vm = this;
@@ -13,6 +13,9 @@ angular.module('appModule').component('stats', {
 			
 		}
 		
+		weekService.calcWeek().then(function(res){
+			console.log(res);
+		})
 		
     },
     controllerAs: 'vm'

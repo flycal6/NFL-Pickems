@@ -1,10 +1,9 @@
 package data;
 
 import java.util.List;
+import java.util.Map;
 
-import entities.Pick;
 import entities.User;
-import entities.Week;
 
 public interface leaderBoardDAO {
 	
@@ -12,9 +11,9 @@ public interface leaderBoardDAO {
 	
 	public User showSeasonLeader();
 	
-	public int calcWeek(List<Pick> picks, User uid, Week wid);
+	public Map<Integer, Map<Integer, Integer>> calcWeek();
 	
-	public int calcSeason(List<Pick> picks, User uid);
+	public Map<String, Object> calcSeason(int uid);
 
 
 }
