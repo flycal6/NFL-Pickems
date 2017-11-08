@@ -29,10 +29,9 @@
 		<form>
 			<input class="newInputs" placeholder="League Name:" ng-model="vm.league.name"><br>
 			<input class="newInputs" placeholder="League Cost:" ng-model="vm.league.cost"><br><br>
-			<input type="radio" name="restrictions" ng-model='vm.league.isPublic'
-				value="true" checked> Public <input type="radio"
-				name="restrictions" ng-model='vm.league.isPublic' value="false">
-			Private<br> <br><br>
+			
+			<input type="radio" name="public" ng-model='vm.league.isPublic' value="true" checked="checked"> Public 
+			<input type="radio" name="private" ng-model='vm.league.isPublic' value="false"> Private<br><br><br>
 
 
 			<button type="btn" class="btn btn-success"

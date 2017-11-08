@@ -8,6 +8,11 @@ td{
 	font-family: 'Montserrat Subrayada', sans-serif;
 	font-size: 50px;
 }
+.navButtons{
+	width: 125px;
+	font-size: 1em;
+	padding: 3px;
+}
 body{
 	background-color:#157EFB;
 	/* background-image: url('https://fthmb.tqn.com/OY0GrqIaxUwokki5-ebX6P1Mpnc=/768x0/filters:no_upscale()/GettyImages-157435789-58402aec3df78c0230d2d44f.jpg');
