@@ -47,6 +47,9 @@ public class PickDAOImpl implements PickDAO {
 
 	@Override
 	public void createPicks(int uid, String todoJson) {
+		List<Pick> picksToDelete = indexPick(uid);
+		deleteUserWeekPicks(picksToDelete);
+		
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			CardDTO cdto = mapper.readValue(todoJson, CardDTO.class);
@@ -71,4 +74,9 @@ public class PickDAOImpl implements PickDAO {
 		em.flush();
 	}
 
+	private void deleteUserWeekPicks(List<Pick> picks) {
+		for (Pick pick : picks) {
+			em.remove(pick);
+		}
+	}
 }
