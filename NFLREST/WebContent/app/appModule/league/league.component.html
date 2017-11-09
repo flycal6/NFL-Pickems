@@ -6,9 +6,9 @@
 			{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} <span ng-show="vm.selected" class="float-right">{{vm.selected.name | uppercase}}</span>
 
 		<!-- ****************************** show all league *************************** -->
-		<div ng-hide="vm.selected">
-			<div ng-repeat="league in vm.leagues" ng-click="vm.setSelected(league.id)">
-				<div class="row" ng-hide="vm.selected">
+		<div>
+			<div ng-hide="vm.selected" ng-repeat="league in vm.leagues" ng-click="vm.setSelected(league.id)">
+				<div class="row">
 					<div class="col">
 						#{{league.id}} {{league.name | uppercase}} <span class="text-muted">${{league.cost}} Entry</span>
 					</div>
@@ -37,33 +37,13 @@
 				<div ng-repeat="user in league.users">
 				<div class="row">
 					<div class="col-2">{{user.fName}} {{user.lName}}</div>
-		<stats></stats>
-<!-- 				<div class="col">1</div>
-					<div class="col">2</div>
-					<div class="col">3</div>
-					<div class="col">4</div>
-					<div class="col">5</div>
-					<div class="col">6</div>
-					<div class="col">7</div>
-					<div class="col">8</div>
-					<div class="col">9</div>
-					<div class="col">10</div>
-					<div class="col">11</div>
-					<div class="col">12</div>
-					<div class="col">13</div>
-					<div class="col">14</div>
-					<div class="col">15</div>
-					<div class="col">16</div>
-					<div class="col">17</div>
-					<div class="col">T</div> 
-					
-				</div>-->
+					<stats></stats>
 					<hr />
 				</div>
-				<button id="joinButton" class="btn btn-success" ng-click="vm.joinLeague(league.id)">Join {{league.name}}</button>
 
 				<hr />
 			</div>
+				<button id="joinButton" class="btn btn-success" ng-click="vm.joinLeague(league.id)">Join {{league.name}}</button>
 		</div>
 
 
@@ -80,5 +60,4 @@
 			<p class="display-3 text-center lead">Loading</p>
 			<img class="img-fluid mx-auto d-block" src="./img/footballLoader.gif">
 		</div>
-	<!-- </div> -->
 </div>
