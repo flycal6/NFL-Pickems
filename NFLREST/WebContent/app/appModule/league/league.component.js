@@ -15,11 +15,11 @@ angular.module('appModule').component('leagues', {
 			vm.loading = 1;
 			nflService.indexLeagues().then(function(res) {
 				vm.user = authService.getToken();
-				console.log('user')
-				 console.log(vm.user.email)
+//				console.log('user')
+//				 console.log(vm.user.email)
 				// console.log(res.data)
 				vm.leagues = res.data;
-				console.log(vm.leagues)
+//				console.log(vm.leagues)
 //				console.log(vm.leagues.users)
 				vm.userJoined
 				vm.loading = 0;
@@ -29,9 +29,9 @@ angular.module('appModule').component('leagues', {
 
 		var showLeague = function(id) {
 			nflService.showLeague(id).then(function(res) {
-				console.log(res);
+//				console.log(res);
 				vm.selected = res.data;
-				console.log(vm.selected)
+//				console.log(vm.selected)
 				vm.loading = 0;
 			});
 		}
@@ -55,10 +55,10 @@ angular.module('appModule').component('leagues', {
 
 		vm.joinLeague = function(lid){
 			vm.loading = 1;
-			console.log('join league id')
-			console.log(lid)
+//			console.log('join league id')
+//			console.log(lid)
 			nflService.joinLeague(lid).then(function(res){
-				console.log(res.data);
+//				console.log(res.data);
 				$location.path("/leagues");
 				window.alert('You have been successfully added to the league!')
 				vm.loading = 0;
@@ -70,19 +70,19 @@ angular.module('appModule').component('leagues', {
 			// can't set vm.weeklytotals directly to args.totals
 			
 			vm.weeklyTotals = args.totals
-			console.log('weeklyTotals recieved');
-			console.log(vm.weeklyTotals);
+//			console.log('weeklyTotals recieved');
+//			console.log(vm.weeklyTotals);
 			concatUserData(vm.leagues, vm.weeklyTotals);
 		});
 
 		function concatUserData(leagueArr, weeklyArr){
 			for(league in leagueArr){
 				for(user in leagueArr[league].users){
-					console.log(leagueArr[league].users[user].id);
+//					console.log(leagueArr[league].users[user].id);
 //				console.log(leagueArr[league].users)
 					for(userW in weeklyArr){
 						if(leagueArr[league].users[user].id == userW){
-							console.log('hit')
+//							console.log('hit')
 							weeklyArr[userW].fName = leagueArr[league].users[user].fName;
 							weeklyArr[userW].lName = leagueArr[league].users[user].lName;
 						}

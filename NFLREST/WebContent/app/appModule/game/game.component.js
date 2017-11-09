@@ -77,7 +77,7 @@ angular.module('appModule').component('games', {
    
         vm.convertPicksToJson = function() {
         		var pickJsonArr = [];
-//        		console.log(picks)
+        		console.log(picks)
         		for (var key in picks) {
 //        			var stringifyPick = JSON.stringify(picks[key])
         			pickJsonArr.push(picks[key])

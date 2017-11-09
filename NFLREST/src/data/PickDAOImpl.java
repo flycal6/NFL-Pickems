@@ -44,14 +44,19 @@ public class PickDAOImpl implements PickDAO {
 				.get(0);
 		return pick;
 	}
+	
+	private List<Pick> getUserWeekPicks(int uid, int wid){
+		String query = "SELECT p FROM Pick p WHERE p.user.id = :uid AND p.game.week.id = :wid";
+		List<Pick> picks = em.createQuery(query, Pick.class)
+							.setParameter("uid", uid)
+							.setParameter("wid", wid)
+							.getResultList();
+		return picks;
+	}
 
 	@Override
 	public void createPicks(int uid, String todoJson) {
-		List<Pick> picksToDelete = indexPick(uid);
-		if(picksToDelete.size() > 0) {
-			deleteUserWeekPicks(picksToDelete);			
-		}
-		
+		int wid = -1;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			CardDTO cdto = mapper.readValue(todoJson, CardDTO.class);
@@ -61,6 +66,14 @@ public class PickDAOImpl implements PickDAO {
 				Team t = em.find(Team.class, pdto.getTeamId());
 				p.setTeam(t);
 				Game g = em.find(Game.class, pdto.getGameId());
+				
+				wid = g.getWeek().getId();
+				List<Pick> picksToDelete = getUserWeekPicks(uid, wid);
+				
+				if(picksToDelete.size() > 0) {
+					deleteUserWeekPicks(picksToDelete);			
+				}
+				
 				p.setGame(g);
 				em.persist(p);
 				

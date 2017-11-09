@@ -40,10 +40,10 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 	service.showLeague = function(lid){
 		checkLogin();
 		var uid = user.id
-		console.log("user id");
-		console.log(uid);
-		console.log("league id");
-		console.log(lid);
+//		console.log("user id");
+//		console.log(uid);
+//		console.log("league id");
+//		console.log(lid);
 		return $http({
 			method: 'GET',
 			url: 'rest/leagues/' + lid + '/' + uid
