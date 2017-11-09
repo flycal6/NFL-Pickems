@@ -19,9 +19,9 @@ td{
 	font-size: 1em;
 	padding: 3px;
 }
-/* body{
+body{
 	background-color: black;
-} */
+}
 #leagueNameHeading{
 	font-weight: bold;
 	font-size: 26px;
@@ -85,8 +85,31 @@ button:hover {
 	text-align:center;
 }
 #joinButton{
-	margin-top: 20px;
+	margin-top: 10px;
+	margin-bottom: 15px;
 	width: 100%;
+	font-weight: bold;
+}
+#allLeagues{
+	background-color:darkgrey;
+	padding: 10px;
+	width: 100%;
+	margin-left: 0px;
+	/* border-style: solid; */
+}
+#allLeaguesCol{
+	border-style: solid;
+	background-color: white;
+	padding: 5px;
+	margin-bottom: 10px;
+	/* border: solid 1px 1px black; */
+}
+#leagueNames{
+	font-weight: bold;
+	font-size: 20px;
+}
+.col{
+	padding: 10px;
 }
 .innerContainer button {
 	margin: auto;

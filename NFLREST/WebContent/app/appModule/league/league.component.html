@@ -2,21 +2,38 @@
 <!-- <div class="innerContainer2"> -->
 
 		<!-- ****************************** show user and league name  ************************************ -->
-		<h4>
+		<h4 style="color: #dddddd">
 			{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} <span ng-show="vm.selected" class="float-right">{{vm.selected.name | uppercase}}</span>
-
+		</h4>
 		<!-- ****************************** show all league *************************** -->
 
-			<div ng-hide="vm.selected" ng-repeat="league in vm.leagues" ng-click="vm.setSelected(league.id)">
-				<div class="row">
-					<div class="col">
+			<div id="allLeaguesCol" ng-hide="vm.selected" ng-repeat="league in vm.leagues" ng-click="vm.setSelected(league.id)">
+				<div class="row" id="allLeagues">
+					<div id="leagueNames" class="col">
 						#{{league.id}} {{league.name | uppercase}} <span class="text-muted">${{league.cost}} Entry</span>
 					</div>
 				</div>
 				<div class="row lead">
 					<div class="col-2">Player</div>
-					<div class="col">1</div>
-					<div class="col">2</div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>1</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>2</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>3</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>4</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>5</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>6</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>7</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>8</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>9</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>10</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>11</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>12</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>13</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>14</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>15</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>16</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>17</strong></div>
+					<div style="margin-left: -9px; font-size: 16px" class="col"><strong>T</strong></div>
+				<!-- 	<div class="col">2</div>
 					<div class="col">3</div>
 					<div class="col">4</div>
 					<div class="col">5</div>
@@ -32,11 +49,11 @@
 					<div class="col">15</div>
 					<div class="col">16</div>
 					<div class="col">17</div>
-					<div class="col">T</div>
+					<div class="col">T</div> -->
 				</div>
 				<div ng-repeat="user in league.users">
 				<div class="row">
-					<div class="col-2">{{user.fName}} {{user.lName}} {{user.id}} 
+					<div class="col-2">{{user.fName}} {{user.lName}} 
 						<span ng-repeat="u in vm.weeklyTotals"> {{u[u]}}</span></div>
 					<stats ng-hide=""></stats>
 					
