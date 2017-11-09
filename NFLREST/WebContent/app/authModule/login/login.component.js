@@ -3,12 +3,19 @@ angular.module('authModule').component('login', {
 	controller: function(authService, $location){
 		var vm = this;
 		vm.loading = 0;
+		vm.unauthorized = null;
 		
 		vm.login = function(user){
 		   	vm.loading = 1;
 			authService.login(user).then(function(res){
 				$location.path('/');
 				vm.loading = 0;
+			})
+			.catch(function(err){
+				vm.loading = 0;
+				vm.unauthorized = 1;
+//				window.alert('Bad Login 401');
+//				$(".alert").alert('Bad Login 401')
 			});
 		}
 	},
