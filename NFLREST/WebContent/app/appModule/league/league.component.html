@@ -1,12 +1,9 @@
 <div class="container">
-	<!-- <div class="innerContainer"> -->
 
 		<!-- ****************************** show user and league name  ************************************ -->
 		<stats></stats>
 		<h4>
-			{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} 
-			<span ng-show="vm.selected" class="float-right">{{vm.selected.name | uppercase}}</span>
-		</h4>
+			{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} <span ng-show="vm.selected" class="float-right">{{vm.selected.name | uppercase}}</span>
 
 		<!-- ****************************** show all league *************************** -->
 		<div ng-hide="vm.selected">
@@ -63,6 +60,7 @@
 					<hr />
 				</div>
 				<button id="joinButton" class="btn btn-success" ng-click="vm.joinLeague(league.id)">Join {{league.name}}</button>
+
 				<hr />
 			</div>
 		</div>
