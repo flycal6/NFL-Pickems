@@ -4,6 +4,12 @@
 td{
 	text-align:left;
 }
+.row{
+	font-size: .7em;
+}
+.row lead{
+	font-size: .7em;
+}
 #brandLogo{
 	font-family: 'Montserrat Subrayada', sans-serif;
 	font-size: 50px;
@@ -79,7 +85,8 @@ button:hover {
 	text-align:center;
 }
 #joinButton{
-	width: 90%;
+	margin-top: 20px;
+	width: 100%;
 }
 .innerContainer button {
 	margin: auto;
