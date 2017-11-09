@@ -49,7 +49,9 @@ public class leaderBoardDAOImpl implements leaderBoardDAO {
 				.setParameter("wid", week.getId())
 				.setParameter("uid", user.getId())
 				.getResultList().size();
-				
+				System.out.println("Picks correct: " + picks);
+				System.out.println("User: " + user.getId());
+				System.out.println("week: " + week.getGameWeek());
 				weekPick.put(week.getId(), picks);
 			}
 		}
