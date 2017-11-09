@@ -38,7 +38,7 @@ public class AuthDAOImpl implements AuthDAO {
 		List<User> users = em.createQuery(query, User.class)
 					.setParameter("email", u.getEmail())
 					.getResultList();
-		System.out.println(users.get(0));
+//		System.out.println(users.get(0));  breaks bad login, don't use except testing
 		if(users.size() > 0) {
 			boolean doMatch = encoder.matches(u.getPassword(), users.get(0).getPassword());
 			System.out.println(doMatch);
