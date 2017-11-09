@@ -14,6 +14,9 @@ angular.module('appModule').component('stats', {
 		}
 		
 		weekService.calcWeek().then(function(res){
+			
+			console.log('******************************************************************');
+			console.log(res.data);
 			vm.weeklyTotals = res.data;
 			
 			$rootScope.$broadcast('weeklyTotals', {

@@ -68,11 +68,11 @@ public class PickDAOImpl implements PickDAO {
 				Game g = em.find(Game.class, pdto.getGameId());
 				
 				wid = g.getWeek().getId();
-				List<Pick> picksToDelete = getUserWeekPicks(uid, wid);
-				
-				if(picksToDelete.size() > 0) {
-					deleteUserWeekPicks(picksToDelete);			
-				}
+//				List<Pick> picksToDelete = getUserWeekPicks(uid, wid);
+//				
+//				if(picksToDelete.size() > 0) {
+//					deleteUserWeekPicks(picksToDelete);			
+//				}
 				
 				p.setGame(g);
 				em.persist(p);

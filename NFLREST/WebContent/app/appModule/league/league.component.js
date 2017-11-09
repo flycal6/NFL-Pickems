@@ -1,9 +1,9 @@
 angular.module('appModule').component('leagues', {
 	templateUrl : 'app/appModule/league/league.component.html',
-	controller : function($location, nflService, authService, $filter, $scope) {
+	controller : function($location, nflService, authService, $filter, $scope, weekService) {
 		var vm = this;
 		vm.leagues = [];
-		vm.selected = null;
+		vm.selected = false;
 		vm.loading = 0;
 		vm.user;
 		var weeklyTotals = [];
@@ -21,7 +21,7 @@ angular.module('appModule').component('leagues', {
 				vm.leagues = res.data;
 //				console.log(vm.leagues)
 //				console.log(vm.leagues.users)
-				vm.userJoined
+//				vm.userJoined
 				vm.loading = 0;
 			});
 		}
@@ -62,14 +62,18 @@ angular.module('appModule').component('leagues', {
 				$location.path("/leagues");
 				window.alert('You have been successfully added to the league!')
 				vm.loading = 0;
+				weekService.calcWeek().then(function(res){
+					vm.weeklyTotals = res.data;
+					vm.reload();
+				})
 			});
-//			vm.reload();z
 		}
 
 		$scope.$on('weeklyTotals', function(events, args){
 			// can't set vm.weeklytotals directly to args.totals
 			
 			vm.weeklyTotals = args.totals
+			console.log(args);
 //			console.log('weeklyTotals recieved');
 //			console.log(vm.weeklyTotals);
 			concatUserData(vm.leagues, vm.weeklyTotals);

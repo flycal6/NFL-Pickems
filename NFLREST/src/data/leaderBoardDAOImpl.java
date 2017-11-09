@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import entities.League;
 import entities.Pick;
 import entities.User;
 import entities.Week;
@@ -30,8 +31,10 @@ public class leaderBoardDAOImpl implements leaderBoardDAO {
 
 	@Override
     public Map<Integer, Map<Integer, Integer>> calcWeek() {
-		String qUser = "SELECT u FROM User u";
-		List<User> users = em.createQuery(qUser, User.class).getResultList();
+		String qLeague = "SELECT l FROM League l JOIN FETCH l.users WHERE l.id =1";
+		List<League> leagues = em.createQuery(qLeague, League.class).getResultList();
+		
+		List<User> users = leagues.get(0).getUsers();
 		
 		String qWeek = "SELECT w FROM Week w";
 		List<Week> weeks = em.createQuery(qWeek, Week.class).getResultList();
