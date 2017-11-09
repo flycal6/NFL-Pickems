@@ -8,67 +8,86 @@ angular.module('appModule').component('leagues', {
 		vm.user;
 		var weeklyTotals = [];
 		vm.weeklyTotals = [];
-		
+//		var concatUserData;
+
 		// INDEX
-		var reload = function() {
+		vm.reload = function() {
 			vm.loading = 1;
 			nflService.indexLeagues().then(function(res) {
 				vm.user = authService.getToken();
-				vm.loading = 0;
 				console.log('user')
 				 console.log(vm.user.email)
 				// console.log(res.data)
 				vm.leagues = res.data;
 				console.log(vm.leagues)
-				console.log(vm.leagues.users)
+//				console.log(vm.leagues.users)
 				vm.userJoined
+				vm.loading = 0;
 			});
 		}
-		reload();
+		vm.reload();
 
 		var showLeague = function(id) {
-			vm.loading = 1;
 			nflService.showLeague(id).then(function(res) {
 				console.log(res);
-				vm.loading = 0;
 				vm.selected = res.data;
 				console.log(vm.selected)
+				vm.loading = 0;
 			});
 		}
 
 		vm.setSelected = function(id) {
+			vm.loading = 1;
 			showLeague(id);
 
 		}
-		
+
 	    vm.createLeague = function(uid, league){
+	    	vm.loading = 1;
 	        nflService.createLeague(uid, league)
 	        .then(function(res){
 	            $scope.$on('createdLeague', console.log("New League added via $rootScope"))
+	            vm.loading = 0;
 	        })
 	        .catch(console.error)
-	        
+
 	    }
-		
+
 		vm.joinLeague = function(lid){
+			vm.loading = 1;
 			console.log('join league id')
 			console.log(lid)
-			vm.loading = 1;
 			nflService.joinLeague(lid).then(function(res){
-				vm.loading = 0;
 				console.log(res.data);
 				$location.path("/leagues");
 				window.alert('You have been successfully added to the league!')
+				vm.loading = 0;
 			});
+//			vm.reload();z
 		}
-		
+
 		$scope.$on('weeklyTotals', function(events, args){
 			// can't set vm.weeklytotals directly to args.totals
-			weeklyTotals : args.totals
-			vm.weeklyTotals = weeklyTotals
+			
+			vm.weeklyTotals = args.totals
+			console.log('weeklyTotals recieved');
 			console.log(vm.weeklyTotals);
+			concatUserData(vm.leagues, vm.weeklyTotals);
 		});
 
+		function concatUserData(leagueArr, weeklyArr){
+			for(league in leagueArr){
+				console.log(league)
+				for(userW in weeklyArr){
+					if(league.user == userW){
+						weeklyArr.fName = league.user.fName;
+						weeklyArr.lName = league.user.lName;
+					}
+				}
+			}
+			console.log(weeklyArr);
+		}
+		
 	},
 	controllerAs : 'vm'
 });

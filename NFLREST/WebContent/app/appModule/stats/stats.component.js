@@ -6,6 +6,7 @@ angular.module('appModule').component('stats', {
 		var vm = this;
 		vm.weeklyTotals = [];
 		
+		vm.getUser
 		
 		vm.loadCurrentWeekStandings = function(pick) {
 			var weekPercentage = 0; 
@@ -16,8 +17,9 @@ angular.module('appModule').component('stats', {
 			vm.weeklyTotals = res.data;
 			
 			$rootScope.$broadcast('weeklyTotals', {
-				totals: vm.weeklyTotals
+				totals: res.data
 			});
+			console.log('weekly sent')
 		})
 		
     },

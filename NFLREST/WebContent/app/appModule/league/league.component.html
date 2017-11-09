@@ -6,7 +6,7 @@
 			{{vm.user.fName | uppercase}} {{vm.user.lName | uppercase}} <span ng-show="vm.selected" class="float-right">{{vm.selected.name | uppercase}}</span>
 
 		<!-- ****************************** show all league *************************** -->
-		<div>
+
 			<div ng-hide="vm.selected" ng-repeat="league in vm.leagues" ng-click="vm.setSelected(league.id)">
 				<div class="row">
 					<div class="col">
@@ -36,8 +36,10 @@
 				</div>
 				<div ng-repeat="user in league.users">
 				<div class="row">
-					<div class="col-2">{{user.fName}} {{user.lName}}</div>
-					<stats></stats>
+					<div class="col-2">{{user.fName}} {{user.lName}} {{user.id}} 
+						<span ng-repeat="u in vm.weeklyTotals"> {{u[u]}}</span></div>
+					<stats ng-hide=""></stats>
+					
 					<hr />
 				</div>
 
@@ -50,9 +52,8 @@
 		<!-- ****************************** show a single league *************************** -->
 		<div ng-show="vm.selected">
 			<button id="cancelButton" class="btn btn-secondary float-right"
-				ng-click="vm.selected = null">Cancel</button>
+				ng-click="vm.selected = null; vm.reload()">Go Back</button>
 			<weeks></weeks>
-
 		</div>
 
 		<!-- ****************************** only show while waiting for server response *************************** -->
