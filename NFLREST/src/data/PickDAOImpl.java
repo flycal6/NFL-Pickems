@@ -33,7 +33,7 @@ public class PickDAOImpl implements PickDAO {
 		String query = "SELECT p FROM Pick p WHERE p.user.id = :uid ";
 		List<Pick> picks = em.createQuery(query, Pick.class).setParameter("uid", uid).getResultList();
 
-		System.out.println(picks.get(0));
+//		System.out.println(picks.get(0));
 		return picks;
 	}
 
@@ -48,7 +48,9 @@ public class PickDAOImpl implements PickDAO {
 	@Override
 	public void createPicks(int uid, String todoJson) {
 		List<Pick> picksToDelete = indexPick(uid);
-		deleteUserWeekPicks(picksToDelete);
+		if(picksToDelete.size() > 0) {
+			deleteUserWeekPicks(picksToDelete);			
+		}
 		
 		ObjectMapper mapper = new ObjectMapper();
 		try {
