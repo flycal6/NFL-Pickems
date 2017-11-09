@@ -1,11 +1,13 @@
 angular.module('appModule').component('leagues', {
 	templateUrl : 'app/appModule/league/league.component.html',
-	controller : function($location, nflService, authService, $filter) {
+	controller : function($location, nflService, authService, $filter, $scope) {
 		var vm = this;
 		vm.leagues = [];
 		vm.selected = null;
 		vm.loading = 0;
 		vm.user;
+		var weeklyTotals = [];
+		vm.weeklyTotals = [];
 		
 		// INDEX
 		var reload = function() {
@@ -59,6 +61,13 @@ angular.module('appModule').component('leagues', {
 				window.alert('You have been successfully added to the league!')
 			});
 		}
+		
+		$scope.$on('weeklyTotals', function(events, args){
+			// can't set vm.weeklytotals directly to args.totals
+			weeklyTotals : args.totals
+			vm.weeklyTotals = weeklyTotals
+			console.log(vm.weeklyTotals);
+		});
 
 	},
 	controllerAs : 'vm'

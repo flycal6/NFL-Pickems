@@ -1,11 +1,10 @@
 angular.module('appModule').component('stats', {
 	templateUrl: 'app/appModule/stats/stats.component.html',
-	controller: function(nflService, weekService){
+	controller: function(nflService, weekService, $rootScope){
 		
 		//  stats for the time being purely consist of % of picks right 
 		var vm = this;
-		vm.checkUsersWeekStats = [];
-		vm.checkSeasonLeader = "";
+		vm.weeklyTotals = [];
 		
 		
 		vm.loadCurrentWeekStandings = function(pick) {
@@ -14,7 +13,11 @@ angular.module('appModule').component('stats', {
 		}
 		
 		weekService.calcWeek().then(function(res){
-			console.log(res);
+			vm.weeklyTotals = res.data;
+			
+			$rootScope.$broadcast('weeklyTotals', {
+				totals: vm.weeklyTotals
+			});
 		})
 		
     },
