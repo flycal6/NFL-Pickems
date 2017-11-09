@@ -51,19 +51,36 @@
 					<div class="col">17</div>
 					<div class="col">T</div> -->
 				</div>
-				<div ng-repeat="user in league.users">
-				<div class="row">
-					<div class="col-2">{{user.fName}} {{user.lName}} 
-						<span ng-repeat="u in vm.weeklyTotals"> {{u[u]}}</span></div>
-					<stats ng-hide=""></stats>
-					
+				<div>
+					<div class="row" ng-repeat="u in vm.weeklyTotals">
+						<div class="col-2" >{{u.fName}} {{u.lName}}</div>
+						<div class="col">{{u[1]}}</div>
+						<div class="col">{{u[2]}}</div>
+						<div class="col">{{u[3]}}</div>
+						<div class="col">{{u[4]}}</div>
+						<div class="col">{{u[5]}}</div>
+						<div class="col">{{u[6]}}</div>
+						<div class="col">{{u[7]}}</div>
+						<div class="col">{{u[8]}}</div>
+						<div class="col">{{u[9]}}</div>
+						<div class="col">{{u[10]}}</div>
+						<div class="col">{{u[11]}}</div>
+						<div class="col">{{u[12]}}</div>
+						<div class="col">{{u[13]}}</div>
+						<div class="col">{{u[14]}}</div>
+						<div class="col">{{u[15]}}</div>
+						<div class="col">{{u[16]}}</div>
+						<div class="col">{{u[17]}}</div>
+						<!-- Total of all cols -->
+						<div class="col">{{u[12]}}</div>
+						
+					</div>
+
 					<hr />
 				</div>
-
-				<hr />
-			</div>
+			<!-- </div> -->
 				<button id="joinButton" class="btn btn-success" ng-click="vm.joinLeague(league.id)">Join {{league.name}}</button>
-		</div>
+					<stats ng-show="vm.loading > 0"></stats>
 
 
 		<!-- ****************************** show a single league *************************** -->

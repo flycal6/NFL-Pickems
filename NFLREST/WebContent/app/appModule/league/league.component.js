@@ -77,15 +77,19 @@ angular.module('appModule').component('leagues', {
 
 		function concatUserData(leagueArr, weeklyArr){
 			for(league in leagueArr){
-				console.log(league)
-				for(userW in weeklyArr){
-					if(league.user == userW){
-						weeklyArr.fName = league.user.fName;
-						weeklyArr.lName = league.user.lName;
+				for(user in leagueArr[league].users){
+					console.log(leagueArr[league].users[user].id);
+//				console.log(leagueArr[league].users)
+					for(userW in weeklyArr){
+						if(leagueArr[league].users[user].id == userW){
+							console.log('hit')
+							weeklyArr[userW].fName = leagueArr[league].users[user].fName;
+							weeklyArr[userW].lName = leagueArr[league].users[user].lName;
+						}
 					}
 				}
 			}
-			console.log(weeklyArr);
+			console.log(vm.weeklyTotals);
 		}
 		
 	},
