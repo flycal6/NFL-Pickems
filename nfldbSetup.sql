@@ -57,7 +57,6 @@ CREATE TABLE `league`(
 );
 
 INSERT INTO `league` (isPublic, name, cost) VALUES (0, 'Rookie League', 10.00);
-INSERT INTO `league` (isPublic, name, cost) VALUES (1, 'Office League', 10.00);
 
 DROP TABLE IF EXISTS `user_league`;
 CREATE TABLE `user_league`(
@@ -82,10 +81,6 @@ CREATE TABLE `league_week`(
 INSERT INTO `league_week` VALUES (1,1);
 INSERT INTO `league_week` VALUES (1,2);
 INSERT INTO `league_week` VALUES (1,3);
-INSERT INTO `league_week` VALUES (2,1);
-INSERT INTO `league_week` VALUES (2,2);
-INSERT INTO `league_week` VALUES (2,3);
-
 
 DROP TABLE IF EXISTS `team`;
 CREATE TABLE `team`(

@@ -82,15 +82,18 @@ angular.module('appModule').component('leagues', {
 		function concatUserData(leagueArr, weeklyArr){
 			for(league in leagueArr){
 				for(user in leagueArr[league].users){
-//					console.log(leagueArr[league].users[user].id);
-//					console.log(leagueArr[league].users)
+					console.log(leagueArr[league].users[user].id);
+					console.log(leagueArr[league].users)
 					for(userW in weeklyArr){
 						if(leagueArr[league].users[user].id == userW){
-//							console.log('hit')
+							console.log('hit')
 							weeklyArr[userW].fName = leagueArr[league].users[user].fName;
 							weeklyArr[userW].lName = leagueArr[league].users[user].lName;
 							weeklyArr[userW].total = weeklyArr[userW][1] + weeklyArr[userW][2] + weeklyArr[userW][3] + weeklyArr[userW][4];
-//							console.log(weeklyArr[userW][7])
+							console.log(weeklyArr[userW][1])
+							console.log(weeklyArr[userW][2])
+							console.log(weeklyArr[userW][3])
+							console.log(weeklyArr[userW][4])
 						}
 					}
 				}
