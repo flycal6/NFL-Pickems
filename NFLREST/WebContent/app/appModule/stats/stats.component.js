@@ -15,14 +15,14 @@ angular.module('appModule').component('stats', {
 		
 		weekService.calcWeek().then(function(res){
 			
-			console.log('******************************************************************');
-			console.log(res.data);
+//			console.log('******************************************************************');
+//			console.log(res.data);
 			vm.weeklyTotals = res.data;
 			
 			$rootScope.$broadcast('weeklyTotals', {
 				totals: res.data
 			});
-			console.log('weekly sent')
+//			console.log('weekly sent')
 		})
 		
     },

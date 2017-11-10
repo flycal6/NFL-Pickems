@@ -73,7 +73,7 @@ angular.module('appModule').component('leagues', {
 			// can't set vm.weeklytotals directly to args.totals
 			
 			vm.weeklyTotals = args.totals
-			console.log(args);
+//			console.log(args);
 //			console.log('weeklyTotals recieved');
 //			console.log(vm.weeklyTotals);
 			concatUserData(vm.leagues, vm.weeklyTotals);
@@ -83,17 +83,19 @@ angular.module('appModule').component('leagues', {
 			for(league in leagueArr){
 				for(user in leagueArr[league].users){
 //					console.log(leagueArr[league].users[user].id);
-//				console.log(leagueArr[league].users)
+//					console.log(leagueArr[league].users)
 					for(userW in weeklyArr){
 						if(leagueArr[league].users[user].id == userW){
 //							console.log('hit')
 							weeklyArr[userW].fName = leagueArr[league].users[user].fName;
 							weeklyArr[userW].lName = leagueArr[league].users[user].lName;
+							weeklyArr[userW].total = weeklyArr[userW][1] + weeklyArr[userW][2] + weeklyArr[userW][3] + weeklyArr[userW][4];
+//							console.log(weeklyArr[userW][7])
 						}
 					}
 				}
 			}
-			console.log(vm.weeklyTotals);
+//			console.log(vm.weeklyTotals);
 		}
 		
 	},

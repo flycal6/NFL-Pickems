@@ -7,6 +7,12 @@ angular.module('appModule').component('weeks', {
 		vm.selectedWeek;
 		vm.selected = null;
 		
+		$rootScope.$on('performUpdate', function(event, args){
+			console.log('received from game.component')
+			indexWeeks();
+			reload();
+		});
+		
 		vm.mapWeeks = function(val){
 			console.log('MapWeeks called: ')
 			console.log(val)
@@ -21,25 +27,28 @@ angular.module('appModule').component('weeks', {
 			weekService.indexWeeks()
 			.then(function(res){
 				vm.weeks = res.data;
-				vm.selectedWeek = vm.weeks[0];
-				console.log(vm.weeks)
+//				if(vm.selectedWeek == undefined){
+					vm.selectedWeek = vm.weeks[0];
+//				}
+				
+//				console.log(vm.weeks)
 			})
 		}
 		indexWeeks();
 		
-	//INDEX   		
-    	reload = function(){
-    		gameService.indexGame()
-    		.then(function(res){
-//    			console.log(res)
-//    			console.log(res.data)
-    			vm.games = res.data;
-    		})  	
-    		.catch(function(err){
-    			console.log(err)
-    		})
-    	}	
-    reload();
+		//INDEX   		
+	    	reload = function(){
+	    		gameService.indexGame()
+	    		.then(function(res){
+	//    			console.log(res)
+	//    			console.log(res.data)
+	    			vm.games = res.data;
+	    		})  	
+	    		.catch(function(err){
+	    			console.log(err)
+	    		})
+	    	}	
+	    reload();
   
     	
 	},

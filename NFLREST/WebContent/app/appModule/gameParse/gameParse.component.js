@@ -1,29 +1,38 @@
 angular.module('appModule').component('gameParse', {
 	templateUrl: 'app/appModule/gameParse/gameParse.component.html',
-	controller: function(gameParseService){
+	controller: function(gameParseService, $scope, $rootScope){
 		var vm = this;
 		vm.loading = 0;
 		vm.games = [];
 		var weekCollection = [];
 		
-		gameParseService.index().then(function(res){
-			vm.loading = 1;
-			console.log(res.data);
-			vm.games = res.data;
-			console.log(vm.games);
-			
-
-			for(game in vm.games){
-				var gameObj = {};
-				gameObj.away = vm.games[game].away.abbr;
-				gameObj.home = vm.games[game].home.abbr;
-				gameObj.week = 1; // default value for object mapping in Impl
-				
-				weekCollection.push(gameObj);
-				
-			};
-			
+		$rootScope.$on('performUpdate', function(event, args){
+			console.log('received from game.component')
+			reload();
 		});
+		
+		var reload = function(){
+			gameParseService.index().then(function(res){
+				vm.loading = 1;
+				console.log(res.data);
+				vm.games = res.data;
+				console.log(vm.games);
+				
+	
+				for(game in vm.games){
+					var gameObj = {};
+					gameObj.away = vm.games[game].away.abbr;
+					gameObj.home = vm.games[game].home.abbr;
+					gameObj.week = 1; // default value for object mapping in Impl
+					
+					weekCollection.push(gameObj);
+					
+				};
+				
+				vm.updateWeek();
+			});
+		}
+		reload();
 		
 		vm.createWeek = function(){
 			vm.loading = 1;
@@ -54,8 +63,7 @@ angular.module('appModule').component('gameParse', {
 				console.log(res);
 				vm.loading = 0;
 			})
-		}
-		
+		};
 	},
 	controllerAs: 'vm'
 });
