@@ -81,6 +81,10 @@ CREATE TABLE `league_week`(
 INSERT INTO `league_week` VALUES (1,1);
 INSERT INTO `league_week` VALUES (1,2);
 INSERT INTO `league_week` VALUES (1,3);
+INSERT INTO `league_week` VALUES (2,1);
+INSERT INTO `league_week` VALUES (2,2);
+INSERT INTO `league_week` VALUES (2,3);
+
 
 DROP TABLE IF EXISTS `team`;
 CREATE TABLE `team`(
@@ -140,50 +144,20 @@ CREATE TABLE `game` (
     REFERENCES `team` (`id`)
 );
 
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (1,2,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (3,4,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (5,6,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (7,8,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (9,10,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (11,12,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (13,14,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (15,16,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (17,18,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (19,20,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (21,22,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (23,24,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (25,26,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (27,28,1);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (2,3,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (4,5,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (6,7,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (8,9,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (10,11,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (12,13,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (14,15,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (16,17,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (18,19,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (20,21,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (22,23,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (24,25,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (26,27,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (28,29,2);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (30,31,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (1,3,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (2,4,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (5,7,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (8,10,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (11,13,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (12,14,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (15,17,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (16,18,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (19,21,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (20,22,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (23,25,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (24,26,3);
-INSERT INTO `game` (homeId, awayId, weekId) VALUES (27,29,3);
-
-
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (1,2,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (3,4,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (5,6,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (7,8,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (9,10,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (11,12,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (13,14,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (15,16,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (17,18,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (19,20,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (21,22,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (23,24,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (25,26,10);
+INSERT INTO `game` (homeId, awayId, weekId) VALUES (27,28,10);
 
 DROP TABLE IF EXISTS `pick`;
 CREATE TABLE `pick` (
@@ -228,33 +202,3 @@ INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (
 INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (12,17,10,'OAK', 'PHI');
 INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (13,21,35,'PIT', 'LAC');
 INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (14,27,23,'SF', 'SEA');
-
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (15,20,23,'ATL', 'BAL');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (16,27,23,'BUF', 'CAR');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (17,20,23,'CHI', 'CIN');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (18,20,23,'CLE', 'DAL');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (19,20,2,'DEN', 'DET');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (20,20,2,'GB', 'HOU');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (21,20,23,'IND', 'JAC');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (22,20,23,'KC', 'MIA');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (23,2,23,'MIN', 'NE');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (24,20,2,'NO', 'NYG');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (25,20,2,'NYJ', 'OAK');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (26,20,23,'PHI', 'PIT');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (27,20,23,'LAC', 'SF');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (28,20,23,'SEA', 'LA');
-
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (29,27,23,'TB', 'TEN');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (30,20,23,'ARI', 'BAL');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (31,20,23,'ATL', 'BUF');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (32,27,23,'CAR', 'CIN');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (33,27,23,'CLE', 'DEN');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (34,27,23,'DET', 'HOU');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (35,20,23,'GB', 'IND');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (36,27,23,'JAC', 'MIA');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (37,20,23,'KC', 'MIN');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (38,27,23,'NE', 'NYG');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (39,20,23,'NO', 'NYJ');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (40,27,23,'OAK', 'PIT');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (41,27,23,'PHI', 'LAC');
-INSERT INTO `result` (gameId, homeScore, awayScore, homeAbbr, awayAbbr) VALUES (42,20,23,'SF', 'LA');
