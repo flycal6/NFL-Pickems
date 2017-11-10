@@ -12,13 +12,13 @@
 		<tr ng-repeat="game in vm.games">
 
 			<td id="gameHomeTeam" ng-click="vm.selectGame(game, 'home')">
-				<button class="btn btn-outline-primary"  ng-class="vm.selectedArr.indexOf(game.home) >= 0 ? 'btn btn-info' : 'btn'">
+				<button class="btn"  ng-class="vm.selectedArr.indexOf(game.home) >= 0 ? 'btn btn-info' : 'btn btn-default'">
 					{{game.home.city}} {{game.home.name}}
 				</button>
 			</td>
 			<td>&emsp;&emsp; VS</td>
 			<td id="gameAwayTeam" ng-click="vm.selectGame(game, 'away')">
-				<button class="btn btn-outline-primary" ng-class="(vm.selectedArr.indexOf(game.away) >= 0) ? 'btn btn-info' : 'btn'">
+				<button class="btn" ng-class="(vm.selectedArr.indexOf(game.away) >= 0) ? 'btn btn-info' : 'btn btn-default'">
 					{{game.away.city}} {{game.away.name}}
 				</button>
 			</td>

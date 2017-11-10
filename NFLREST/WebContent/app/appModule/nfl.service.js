@@ -13,6 +13,9 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 	var checkLogin = function(){
 		if(authService.getToken().id == null){
 			$location.path('/login')
+			
+		}
+		else{
 			getUser();
 		}
 	};
@@ -52,7 +55,6 @@ angular.module('appModule').factory('nflService', function($http, $filter, $loca
 	
 	service.joinLeague = function(lid){
 		checkLogin();
-		console.log();
 		return $http({
 			method: 'POST',
 			url: 'rest/users/' + user.id + '/leagues/' + lid

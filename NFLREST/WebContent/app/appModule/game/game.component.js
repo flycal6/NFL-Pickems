@@ -1,6 +1,6 @@
 angular.module('appModule').component('games', {
     templateUrl : 'app/appModule/game/game.component.html',
-    controller: function($location, gameService, weekService, authService, $scope, pickService){
+    controller: function($location, gameService, weekService, authService, $scope, pickService, $rootScope){
         var vm = this;
         vm.games = [];
         vm.selected = null;
@@ -88,9 +88,17 @@ angular.module('appModule').component('games', {
 //        		console.log('pickJsonArr')
 //        		console.log(pickJsonArr)
         		gameService.createPicks(JSON.stringify(card)).then(function(res){
+        			weekService.calcWeek().then(function(res){
+        				console.log('This worked')
+        				console.log(res.data)
+        				$rootScope.$broadcast('weeklyTotals', {
+        					totals: res.data
+        				});
+        				
+        			}).catch(function(err){
+        				console.log(err)
+        			})
         			window.alert('Pick submitted successfully!')
-//        			console.log('created');
-//        			console.log(res.data);
         		});
         }
     	
