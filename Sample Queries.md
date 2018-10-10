@@ -6,11 +6,21 @@ http://www.nfl.com/liveupdate/game-center/2012020500/2012020500_gtd.json
 Current Week's scores:
 http://www.nfl.com/liveupdate/scores/scores.json
 
+Alternative Week's Scores JSON
+https://feeds.nfl.com/feeds-rs/scores.json
+
+Season Schedule
+https://feeds.nfl.com/feeds-rs/schedules.json
+
+Big Play Videos
+https://feeds.nfl.com/feeds-rs/bigPlayVideos.json
+
 Current week (xml):
 http://www.nfl.com/liveupdate/scorestrip/ss.xml
 
-Arbitrary weeks:
+Arbitrary weeks (xml):
 http://www.nfl.com/ajax/scorestrip?season=%d&seasonType=%s&week=%d
+
 seasonType can be PRE, REG, or POST. For reg or post, weeks go 1-22 (18 is WC, 19 Div, 20 Conf Championship, 21 is blank, 22 is SB). For pre, 0-4 IIRC.
 
 
